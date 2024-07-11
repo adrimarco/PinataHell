@@ -33,6 +33,16 @@ public class Player : MonoBehaviour
         
     }
 
+    private void FixedUpdate()
+    {
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position, Vector3.down, out hit, 4))
+        {
+            float force = 1.2f - hit.distance;
+            rb.AddForce(Vector3.up * force, ForceMode.Acceleration);
+        }
+    }
+
     public void AddMovement(Vector2 direction)
     {
         Vector3 movement = GetMovementForward() * direction.y + GetMovementRight() * direction.x;
