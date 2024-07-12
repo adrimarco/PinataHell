@@ -1,6 +1,11 @@
-public interface ISkill
+using UnityEngine;
+using UnityEngine.UI;
+
+public class SkillBase : MonoBehaviour 
 {
-    public void OnActivate();
-    public void OnUse();
-    public void OnDeactivate();
+    public Texture2D icon;
+    public string description;
+    public void OnActivate() { }
+    public void OnUse() { }
+    public void OnDeactivate() { }
 }

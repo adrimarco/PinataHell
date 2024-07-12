@@ -748,8 +748,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 985bdccefcc60a244acd9eb17a20d352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 4
   maxHealth: 100
+  _movementSpeed: 4
   interactionList: []
 --- !u!1 &1266608847
 GameObject:
