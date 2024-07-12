@@ -748,8 +748,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 985bdccefcc60a244acd9eb17a20d352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 10
+  movementSpeed: 4
   maxHealth: 100
+  interactionList: []
 --- !u!1 &1266608847
 GameObject:
   m_ObjectHideFlags: 0
@@ -1219,11 +1220,6 @@ PrefabInstance:
         type: 3}
       propertyPath: BottomClamp
       value: -70
-      objectReference: {fileID: 0}
-    - target: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
-        type: 3}
-      propertyPath: SprintSpeed
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
