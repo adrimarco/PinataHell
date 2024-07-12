@@ -8,6 +8,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] Transform aiTarget;
     NavMeshAgent navAgent;
 
+    // Enemy stats
+    private float health = 10.0f;
+    private float stunTime = 0.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +23,28 @@ public class Enemy : MonoBehaviour
     {
         if (aiTarget && navAgent)
         {
-            navAgent.SetDestination(aiTarget.position);
+            if (stunTime > 0.0f)
+            {
+                stunTime -= Time.deltaTime;
+            }
+            else { 
+                navAgent.SetDestination(aiTarget.position);
+            }
+        }
+    }
+
+    public void Damage(float damage)
+    {
+        health -= damage;
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        } 
+        else
+        {
+            stunTime = 1.5f;
+            navAgent.SetDestination(navAgent.transform.position);
         }
     }
 }
