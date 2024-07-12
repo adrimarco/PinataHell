@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class Player : MonoBehaviour
 {
@@ -14,10 +16,14 @@ public class Player : MonoBehaviour
     // Components
     private Rigidbody rb = null;
     private Camera cam = null;
+    private CapsuleCollider playerCollider = null;
+    private StarterAssets.StarterAssetsInputs input = null;
 
 
     private float camXRotation = 0.0f;
     private float camYRotation = 0.0f;
+
+    public List<GameObject> interactionList;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +31,9 @@ public class Player : MonoBehaviour
         health = maxHealth;
         rb = GetComponent<Rigidbody>();
         cam = GetComponentInChildren<Camera>();
+        playerCollider = GetComponentInChildren<CapsuleCollider>();
+        input = GetComponent<StarterAssets.StarterAssetsInputs>();
+        input.interactInputEvent.AddListener(Interaction);
     }
 
     // Update is called once per frame
@@ -33,13 +42,15 @@ public class Player : MonoBehaviour
         
     }
 
-    private void FixedUpdate()
+    public void Interaction()
     {
-        RaycastHit hit;
-        if(Physics.Raycast(transform.position, Vector3.down, out hit, 4))
+        if(interactionList.Count > 0)
         {
-            float force = 1.2f - hit.distance;
-            rb.AddForce(Vector3.up * force, ForceMode.Acceleration);
+            Pickable p;
+            if (interactionList[0].TryGetComponent<Pickable>(out p))
+            {
+                p.OnPlayerInteract();
+            }
         }
     }
 
@@ -73,5 +84,15 @@ public class Player : MonoBehaviour
     public Vector3 GetMovementRight()
     {
         return cam.transform.right;
+    }
+
+    public void AddPickable(GameObject p)
+    {
+        interactionList.Add(p);
+    }
+
+    public void RemovePickable(GameObject p)
+    {
+        interactionList.Remove(p);
     }
 }
