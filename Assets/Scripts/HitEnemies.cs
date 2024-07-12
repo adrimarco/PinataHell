@@ -8,12 +8,15 @@ public class HitEnemies : MonoBehaviour
     private Animator animator;
     private Camera cam;
     private bool attacking = false;
+    private CapsuleCollider batCollider;
 
     // Start is called before the first frame update
     void Start()
     {
         cam = Camera.main;
         animator = GetComponent<Animator>();
+        batCollider = GetComponent<CapsuleCollider>();
+        batCollider.enabled = false;
     }
 
     public void Attack()
@@ -24,21 +27,29 @@ public class HitEnemies : MonoBehaviour
         }
     }
 
-    public void CheckEnemyHit()
+    public void OnTriggerEnter(Collider other)
     {
-        RaycastHit hit;
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 2))
+        if (other.attachedRigidbody != null)
         {
-            if (hit.rigidbody != null)
-            {
-                hit.rigidbody.AddForce(cam.transform.forward * 10, ForceMode.Impulse);
-            }
+            Vector3 hitDirection = other.transform.position - transform.position;
+            hitDirection.y = Mathf.Max(hitDirection.y, 0);
+
+            other.attachedRigidbody.AddForce(hitDirection.normalized * 10, ForceMode.Impulse);
         }
+    }
+
+    public void EnableBatCollision()
+    {
+        batCollider.enabled = true;
+    }
+
+    public void DisableBatCollision()
+    {
+        batCollider.enabled = false;
     }
 
     public void AttackFinished()
     {
         attacking = false;
-        Debug.Log("Attack finished");
     }
 }

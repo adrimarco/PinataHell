@@ -13,6 +13,7 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public bool attack;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -49,10 +50,10 @@ namespace StarterAssets
 
 		public void OnAttack(InputValue value)
 		{
+            AttackInput(value.isPressed);
 			if (value.isPressed)
 			{
-				Debug.Log("Attack pressed");
-				AttackInput();
+                attackInputEvent.Invoke();
 			}
 		}
 #endif
@@ -78,9 +79,9 @@ namespace StarterAssets
 			sprint = newSprintState;
 		}
 
-		public void AttackInput()
+		public void AttackInput(bool newAttackState)
 		{
-			attackInputEvent.Invoke();
+			attack = newAttackState;
 		}
 		
 		private void OnApplicationFocus(bool hasFocus)
