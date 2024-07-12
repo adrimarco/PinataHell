@@ -47,6 +47,13 @@ public class Pickable : MonoBehaviour
 
     public void OnPlayerInteract()
     {
+        if (overlappingPlayer == null) return;
+
+        SkillData skill;
+        if (TryGetComponent<SkillData>(out skill))
+        {
+            overlappingPlayer.UpdateActiveSkill(skill);
+        }
         OnPlayerEndOverlap();
         Destroy(gameObject);
     }
