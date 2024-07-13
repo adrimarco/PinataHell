@@ -29,12 +29,20 @@ public class HitEnemies : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        if (!attacking) return;
+
         if (other.attachedRigidbody != null)
         {
             Vector3 hitDirection = other.transform.position - transform.position;
             hitDirection.y = Mathf.Max(hitDirection.y, 0);
 
             other.attachedRigidbody.AddForce(hitDirection.normalized * 10, ForceMode.Impulse);
+        }
+
+        EnemyCollider enemyCollider;
+        if (other.gameObject.TryGetComponent<EnemyCollider>(out enemyCollider))
+        {
+            enemyCollider.enemy.Damage(2);
         }
     }
 

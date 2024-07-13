@@ -29,15 +29,15 @@ public class Player : MonoBehaviour
 
 
     // Components
+    public HUD hud = null;
     private Rigidbody rb = null;
     private Camera cam = null;
     private CapsuleCollider playerCollider = null;
     private StarterAssets.StarterAssetsInputs input = null;
     private StarterAssets.FirstPersonController controller = null;
 
-
-    private float camXRotation = 0.0f;
-    private float camYRotation = 0.0f;
+    // Skills
+    private SkillData activeSkill = null;
 
     public List<GameObject> interactionList;
 
@@ -73,52 +73,67 @@ public class Player : MonoBehaviour
         if(interactionList.Count > 0)
         {
             Pickable p;
-            if (interactionList[0].TryGetComponent<Pickable>(out p))
+            if (interactionList[interactionList.Count-1].TryGetComponent<Pickable>(out p))
             {
                 p.OnPlayerInteract();
             }
         }
     }
 
-    public void AddMovement(Vector2 direction)
+    public void UpdateActiveSkill(SkillData newSkill)
     {
-        Vector3 movement = GetMovementForward() * direction.y + GetMovementRight() * direction.x;
-
-        movement = movement.normalized * movementSpeed;
-
-        rb.AddForce(movement, ForceMode.Acceleration);
+        RemoveActiveSkill();
+        AddActiveSkill(newSkill);
     }
 
-    public void MoveCamera(Vector2 input) {
-        camXRotation += input.x;
-        camYRotation -= input.y;
+    public void RemoveActiveSkill()
+    {
+        if (activeSkill == null) return;
 
-        // Clamp vertical camera movement
-        camYRotation = Mathf.Clamp(camYRotation, -70, 70);
-        
-        cam.transform.localRotation = Quaternion.Euler(camYRotation, camXRotation, 0);
+        Destroy(activeSkill);
+        activeSkill = null;
     }
 
-    public Vector3 GetMovementForward()
+    public void AddActiveSkill(SkillData newSkill)
     {
-        Vector3 forward = cam.transform.forward;
-        forward.y = 0;
+        if (activeSkill != null) return;
 
-        return forward.normalized;
-    }
+        activeSkill = gameObject.AddComponent<SkillData>();
+        activeSkill.icon = newSkill.icon;
+        activeSkill.description = newSkill.description;
+        activeSkill.skill = newSkill.skill;
 
-    public Vector3 GetMovementRight()
-    {
-        return cam.transform.right;
+        // Show new skill information on HUD
+        hud.ShowShowSkillLayer(activeSkill);
+        hud.Invoke("HideShowSkillLayer", 5.0f);
     }
 
     public void AddPickable(GameObject p)
     {
         interactionList.Add(p);
+
+        SkillData skill;
+        if(p.TryGetComponent<SkillData>(out skill))
+        {
+            hud.ShowChangeSkillLayer(skill, activeSkill);
+        }
     }
 
     public void RemovePickable(GameObject p)
     {
         interactionList.Remove(p);
+
+        if(interactionList.Count > 0)
+        {
+            SkillData skill;
+            if (interactionList[interactionList.Count-1].TryGetComponent<SkillData>(out skill))
+            {
+                hud.ShowChangeSkillLayer(skill, activeSkill);
+            }
+        }
+        else
+        {
+            hud.HideChangeSkillLayer();
+        }
     }
 }
