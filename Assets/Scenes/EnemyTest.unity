@@ -123,7 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
-<<<<<<< HEAD
 --- !u!1001 &196260201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1105,8 +1104,6 @@ PrefabInstance:
       addedObject: {fileID: 760311857}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
-=======
->>>>>>> main
 --- !u!1 &404898612
 GameObject:
   m_ObjectHideFlags: 0
@@ -1624,7 +1621,6 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 27fb49611f4c8a3419e0e0db304776aa, type: 2}
   m_BuildHeightMesh: 0
-<<<<<<< HEAD
 --- !u!1001 &1306125237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1703,7 +1699,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
-=======
 --- !u!4 &1262675404 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2995591042079642357, guid: 7583dbc7999336f46bbb32bee6c375a3,
@@ -1722,7 +1717,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc7db73d643f574ab53b65f7efcb618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
->>>>>>> main
 --- !u!1 &1606757390
 GameObject:
   m_ObjectHideFlags: 0
@@ -1856,7 +1850,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!1 &2009352550 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
@@ -1913,7 +1906,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 878496559}
   m_PrefabAsset: {fileID: 0}
-=======
 --- !u!1001 &2020984694
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1987,7 +1979,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7583dbc7999336f46bbb32bee6c375a3, type: 3}
->>>>>>> main
 --- !u!1001 &7536603766144524828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2097,9 +2088,6 @@ SceneRoots:
   - {fileID: 404898615}
   - {fileID: 7536603766144524828}
   - {fileID: 1606757395}
-<<<<<<< HEAD
   - {fileID: 196260201}
   - {fileID: 878496559}
-=======
   - {fileID: 2020984694}
->>>>>>> main
