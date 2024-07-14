@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] Transform aiTarget;
+    Transform aiTarget;
     NavMeshAgent navAgent;
 
     // Enemy stats
@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        aiTarget = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         navAgent = GetComponent<NavMeshAgent>();
     }
 
@@ -40,6 +41,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            SpawnManager.onEnemyDeath.Invoke();
         } 
         else
         {
