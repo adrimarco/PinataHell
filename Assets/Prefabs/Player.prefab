@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 130969154886077709}
   - component: {fileID: 6610035398841788669}
   - component: {fileID: 8591781642456343790}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ MonoBehaviour:
   GroundedRadius: 0.5
   GroundLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 9
   CinemachineCameraTarget: {fileID: 8496305098688561464}
   TopClamp: 70
   BottomClamp: -70

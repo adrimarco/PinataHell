@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void Damage(float damage)
+    public bool Damage(float damage)
     {
         health -= damage;
 
@@ -42,11 +42,15 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             SpawnManager.onEnemyDeath.Invoke();
-        } 
-        else
-        {
-            stunTime = 1.5f;
-            navAgent.SetDestination(navAgent.transform.position);
+            EnemyLoot.Instance.SpawnRandomReward(transform.position);
+
+            return true;
         }
+
+        // Apply stun to enemy
+        stunTime = 1.5f;
+        navAgent.SetDestination(navAgent.transform.position);
+
+        return false;
     }
 }

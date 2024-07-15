@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
     // Skills
     private SkillData activeSkill = null;
 
-    public List<GameObject> interactionList;
+    private List<GameObject> interactionList = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -102,6 +102,9 @@ public class Player : MonoBehaviour
         activeSkill.icon = newSkill.icon;
         activeSkill.description = newSkill.description;
         activeSkill.skill = newSkill.skill;
+
+        // Cancel invocation of hide function, necessary if other skill was picked recently
+        hud.CancelInvoke("HideShowSkillLayer");
 
         // Show new skill information on HUD
         hud.ShowShowSkillLayer(activeSkill);
