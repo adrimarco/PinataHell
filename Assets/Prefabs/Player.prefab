@@ -86,7 +86,7 @@ CharacterController:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -316,7 +316,6 @@ MonoBehaviour:
   maxHealth: 100
   _movementSpeed: 4
   hud: {fileID: 2688253151830761261}
-  interactionList: []
 --- !u!1001 &144271497262705141
 PrefabInstance:
   m_ObjectHideFlags: 0

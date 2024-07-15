@@ -44,7 +44,6 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             SpawnManager.onEnemyDeath.Invoke();
-            EnemyLoot.Instance.SpawnRandomReward(transform.position);
 
             return true;
         }

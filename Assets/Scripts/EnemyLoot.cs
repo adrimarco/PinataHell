@@ -38,7 +38,7 @@ public class EnemyLoot : MonoBehaviour
         }
         else if (randomNumber < 750)
         {
-             //SpawnLife();
+             SpawnLife(spawnLocation);
         }
         else
         {
@@ -62,5 +62,11 @@ public class EnemyLoot : MonoBehaviour
         int randomIndex = Random.Range(0, enemiesBodies.Count);
 
         GameObject body = Instantiate(enemiesBodies[randomIndex], enemyTransform.position, enemyTransform.rotation);
+    }
+
+    public void SpawnLife(Vector3 spawnLocation)
+    {
+        if (lifePickup != null)
+            Instantiate(lifePickup, spawnLocation, Quaternion.identity);
     }
 }

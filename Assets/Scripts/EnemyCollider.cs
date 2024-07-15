@@ -23,14 +23,10 @@ public class EnemyCollider : MonoBehaviour
 
     public void OnEnemyDead()
     {
-        Ragdoll();
-        
         enemy = null;
-    }
 
-    public void Ragdoll()
-    {
         EnemyLoot.Instance.GenerateDeadEnemy(transform);
+        EnemyLoot.Instance.SpawnRandomReward(transform.position);
         Destroy(gameObject);
     }
 

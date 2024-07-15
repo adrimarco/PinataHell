@@ -70,7 +70,8 @@ public class Player : MonoBehaviour
 
     public void Damage(float damage)
     {
-        Debug.Log(damage);
+        health -= damage;
+        Debug.Log(health + "/" + maxHealth);
     }
 
     public void Interaction()
@@ -143,5 +144,16 @@ public class Player : MonoBehaviour
         {
             hud.HideChangeSkillLayer();
         }
+    }
+
+    public bool IsFullyHealed()
+    {
+        return health >= maxHealth;
+    }
+
+    public void Heal(float healing)
+    {
+        health = Mathf.Min(health + healing, maxHealth);
+        Debug.Log(health + "/" + maxHealth);
     }
 }

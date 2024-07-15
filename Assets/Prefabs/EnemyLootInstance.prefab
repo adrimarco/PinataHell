@@ -46,7 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillsPickups:
   - {fileID: 1459550635916938581, guid: b1bbbc07ec9c55340b9352d34438adf0, type: 3}
-  lifePickup: {fileID: 0}
+  lifePickup: {fileID: 8986041445268934984, guid: 26d687cc3d551f94ba5cd6256057a774,
+    type: 3}
   bomb: {fileID: 0}
   enemiesBodies:
   - {fileID: 7563054055658561737, guid: e487d858cdf00f14aa9ee28599f8f2fc, type: 3}

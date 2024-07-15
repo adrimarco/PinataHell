@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6466086738554430149}
   - component: {fileID: 8460101595314644342}
   - component: {fileID: 7550374894971631264}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Part2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 8796431151945544720}
   - component: {fileID: 6080418897719042848}
   - component: {fileID: 5147960885987509164}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Part3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 2238913321012012430}
   - component: {fileID: 4947589537832217335}
   - component: {fileID: 4547431950937372293}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Part1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,7 +412,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3914062365675402153}
   - component: {fileID: -6549244335711228392}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BrokenPinata1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
