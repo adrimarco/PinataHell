@@ -68,6 +68,11 @@ public class Player : MonoBehaviour
         
     }
 
+    public void Damage(float damage)
+    {
+        Debug.Log(damage);
+    }
+
     public void Interaction()
     {
         if(interactionList.Count > 0)

@@ -436,7 +436,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 2416637952310644875}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 4
+  m_Radius: 2
   m_Speed: 4
   m_Acceleration: 10.3
   avoidancePriority: 50
@@ -461,6 +461,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc7db73d643f574ab53b65f7efcb618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 10
+  attackDamage: 10
 --- !u!4 &3081112804489710129 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 98dbfda1c4e727a4086afe48b826ea13,

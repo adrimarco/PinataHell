@@ -34,16 +34,15 @@ public class EnemyCollider : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
-        if (enemy != null) return;
+        if (enemy == null || enemy.IsStunned()) return;
 
-        if (collision.transform.position.y > transform.position.y + 0.5) return;
-
-        // Calculate push direction
-        Vector3 push = transform.position - collision.transform.position;
-        push.y = 0;
-
-        rb.AddForce(push.normalized * 5);
+        Player player;
+        if (collision.gameObject.TryGetComponent<Player>(out player))
+        {
+            player.Damage(enemy.attackDamage);
+            enemy.ApplyStun(1.0f);
+        }
     }
 }

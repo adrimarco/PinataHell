@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,7 +10,8 @@ public class Enemy : MonoBehaviour
     NavMeshAgent navAgent;
 
     // Enemy stats
-    private float health = 10.0f;
+    public float health = 10.0f;
+    public float attackDamage = 10.0f;
     private float stunTime = 0.0f;
 
     // Start is called before the first frame update
@@ -48,9 +50,19 @@ public class Enemy : MonoBehaviour
         }
 
         // Apply stun to enemy
-        stunTime = 1.5f;
+        ApplyStun(1.5f);
         navAgent.SetDestination(navAgent.transform.position);
 
         return false;
+    }
+
+    public void ApplyStun(float time)
+    {
+        stunTime = Mathf.Max(stunTime, time);
+    }
+
+    public bool IsStunned()
+    {
+        return stunTime > 0f;
     }
 }
