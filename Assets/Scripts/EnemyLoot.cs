@@ -30,7 +30,7 @@ public class EnemyLoot : MonoBehaviour
 
         if (randomNumber < 500) 
         {
-            //GetCandies();
+            return;
         }
         else if (randomNumber < 550)
         {

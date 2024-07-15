@@ -20,15 +20,10 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] int maxEnemiesCount = 20;
 
 
-    //Events
-    public static UnityEvent onEnemyDeath;
     // Start is called before the first frame update
     void Start()
     {
-        if (onEnemyDeath == null)
-            onEnemyDeath = new UnityEvent();
-
-        onEnemyDeath.AddListener(OnEnemyDeath);
+        Enemy.onEnemyDead.AddListener(OnEnemyDeath);
     }
 
     // Update is called once per frame
@@ -71,7 +66,7 @@ public class SpawnManager : MonoBehaviour
         pointsCount = 0;
     }
 
-    private void OnEnemyDeath()
+    private void OnEnemyDeath(int _candies)
     {
         enemiesCount--;
     }

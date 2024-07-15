@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
@@ -12,7 +13,10 @@ public class Enemy : MonoBehaviour
     // Enemy stats
     public float health = 10.0f;
     public float attackDamage = 10.0f;
+    public int candies = 10;
     private float stunTime = 0.0f;
+
+    public static UnityEvent<int> onEnemyDead = new UnityEvent<int>();
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +47,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
-            SpawnManager.onEnemyDeath.Invoke();
+            onEnemyDead.Invoke(candies);
 
             return true;
         }

@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _movementSpeed = 4.0f;
     private float health = 100.0f;
+    private int candies = 0;
 
     public float movementSpeed
     {
@@ -60,6 +61,8 @@ public class Player : MonoBehaviour
         // Update stats
         health = maxHealth;
         movementSpeed = _movementSpeed;
+
+        Enemy.onEnemyDead.AddListener(AddCandies);
     }
 
     // Update is called once per frame
@@ -155,5 +158,10 @@ public class Player : MonoBehaviour
     {
         health = Mathf.Min(health + healing, maxHealth);
         Debug.Log(health + "/" + maxHealth);
+    }
+
+    public void AddCandies(int candiesAmount)
+    {
+        candies += Math.Max(candiesAmount, 0);
     }
 }
