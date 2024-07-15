@@ -42,7 +42,7 @@ public class HitEnemies : MonoBehaviour
         EnemyCollider enemyCollider;
         if (other.gameObject.TryGetComponent<EnemyCollider>(out enemyCollider))
         {
-            enemyCollider.enemy.Damage(2);
+            enemyCollider.enemy.Damage(5);
         }
     }
 
