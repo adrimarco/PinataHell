@@ -9,6 +9,7 @@ public class EnemyLoot : MonoBehaviour
     public List<GameObject> skillsPickups;
     public GameObject lifePickup;
     public GameObject bomb;
+    public List<GameObject> enemiesBodies;
     
     // Start is called before the first frame update
     void Start()
@@ -52,5 +53,14 @@ public class EnemyLoot : MonoBehaviour
         int randomIndex = Random.Range(0, skillsPickups.Count);
         
         Instantiate(skillsPickups[randomIndex], spawnLocation, Quaternion.identity);
+    }
+
+    public void GenerateDeadEnemy(Transform enemyTransform)
+    {
+        if (enemiesBodies.Count == 0) return;
+
+        int randomIndex = Random.Range(0, enemiesBodies.Count);
+
+        GameObject body = Instantiate(enemiesBodies[randomIndex], enemyTransform.position, enemyTransform.rotation);
     }
 }

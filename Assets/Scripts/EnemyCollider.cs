@@ -26,18 +26,11 @@ public class EnemyCollider : MonoBehaviour
         Ragdoll();
         
         enemy = null;
-
-        Invoke("DestroyCollider", 10.0f);
     }
 
     public void Ragdoll()
     {
-        string[] layers = { "Enemy", "Player" };
-        rb.excludeLayers = LayerMask.GetMask(layers);
-    }
-
-    public void DestroyCollider()
-    {
+        EnemyLoot.Instance.GenerateDeadEnemy(transform);
         Destroy(gameObject);
     }
 
