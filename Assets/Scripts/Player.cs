@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
     public void Damage(float damage)
     {
         health -= damage;
-        Debug.Log(health + "/" + maxHealth);
+        hud.UpdateHealthBar(0, health, maxHealth);
     }
 
     public void Interaction()
@@ -111,6 +111,8 @@ public class Player : MonoBehaviour
         activeSkill.icon = newSkill.icon;
         activeSkill.description = newSkill.description;
         activeSkill.skill = newSkill.skill;
+
+        hud.ChangeCurrentSkill(activeSkill);
 
         // Cancel invocation of hide function, necessary if other skill was picked recently
         hud.CancelInvoke("HideShowSkillLayer");
@@ -157,11 +159,13 @@ public class Player : MonoBehaviour
     public void Heal(float healing)
     {
         health = Mathf.Min(health + healing, maxHealth);
-        Debug.Log(health + "/" + maxHealth);
+        hud.UpdateHealthBar(0, health, maxHealth);
     }
 
     public void AddCandies(int candiesAmount)
     {
         candies += Math.Max(candiesAmount, 0);
+
+        hud.SetCandiesAmount(candies);
     }
 }
