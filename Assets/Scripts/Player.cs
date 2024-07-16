@@ -66,6 +66,7 @@ public class Player : MonoBehaviour
         controller = GetComponent<StarterAssets.FirstPersonController>();
 
         input = GetComponent<StarterAssets.StarterAssetsInputs>();
+        input.attackInputEvent.AddListener(Attack);
         input.interactInputEvent.AddListener(Interaction);
         input.shopInputEvent.AddListener(ToggleShop);
 
@@ -102,6 +103,13 @@ public class Player : MonoBehaviour
         hud.UpdateHealthBar(shield, health, maxHealth);
     }
 
+    public void Attack()
+    {
+        if (!controller.enabled) return;
+
+        damageComp.Attack();
+    }
+
     private void DamageShield(float damage)
     {
         shield -= damage;
@@ -120,7 +128,9 @@ public class Player : MonoBehaviour
 
     public void Interaction()
     {
-        if(interactionList.Count > 0)
+        if (!controller.enabled) return;
+
+        if (interactionList.Count > 0)
         {
             Pickable p;
             if (interactionList[interactionList.Count-1].TryGetComponent<Pickable>(out p))
@@ -142,6 +152,8 @@ public class Player : MonoBehaviour
         Cursor.visible = shopNewState;
         Cursor.lockState = shopNewState ? CursorLockMode.None : CursorLockMode.Locked;
         Time.timeScale = shopNewState ? 0 : 1;
+
+        controller.enabled = !shopNewState;
     }
 
     public void UpdateActiveSkill(SkillData newSkill)
