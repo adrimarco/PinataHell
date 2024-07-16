@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     private float health = 100.0f;
     private int candies = 0;
     private float shield = 0;
+    private float maxShield = 0;
 
     public float movementSpeed
     {
@@ -32,6 +33,8 @@ public class Player : MonoBehaviour
 
     // Components
     public HUD hud = null;
+    public Shop shopUI = null;
+    public HitEnemies damageComp = null;
     private Rigidbody rb = null;
     private Camera cam = null;
     private CapsuleCollider playerCollider = null;
@@ -57,6 +60,7 @@ public class Player : MonoBehaviour
 
         input = GetComponent<StarterAssets.StarterAssetsInputs>();
         input.interactInputEvent.AddListener(Interaction);
+        input.shopInputEvent.AddListener(ToggleShop);
 
 
         // Update stats and hud
@@ -64,6 +68,9 @@ public class Player : MonoBehaviour
         movementSpeed = _movementSpeed;
         candies = 0;
         hud.UpdateHealthBar(shield, health, maxHealth);
+
+        shopUI.gameObject.SetActive(false);
+        shopUI.SetPlayer(this);
 
         Enemy.onEnemyDead.AddListener(AddCandies);
     }
@@ -90,6 +97,20 @@ public class Player : MonoBehaviour
                 p.OnPlayerInteract();
             }
         }
+    }
+
+    public void ToggleShop()
+    {
+        if (shopUI == null) return;
+
+        bool shopNewState = !shopUI.gameObject.activeSelf;
+
+        if(shopNewState) shopUI.UpdateUI();
+
+        shopUI.gameObject.SetActive(shopNewState);
+        Cursor.visible = shopNewState;
+        Cursor.lockState = shopNewState ? CursorLockMode.None : CursorLockMode.Locked;
+        Time.timeScale = shopNewState ? 0 : 1;
     }
 
     public void UpdateActiveSkill(SkillData newSkill)
@@ -165,10 +186,43 @@ public class Player : MonoBehaviour
         hud.UpdateHealthBar(shield, health, maxHealth);
     }
 
+    public void IncreaseMaxHealth(float amount)
+    {
+        maxHealth += amount;
+        Heal(amount);
+    }
+
     public void AddCandies(int candiesAmount)
     {
         candies += Math.Max(candiesAmount, 0);
 
         hud.SetCandiesAmount(candies);
+    }
+
+    public int GetCandiesAmount()
+    {
+        return candies;
+    }
+
+    public void ReduceCandies(int candiesAmount)
+    {
+        candies -= candiesAmount;
+
+        hud.SetCandiesAmount(candies);
+    }
+
+    public void IncreaseShieldCapacity(float shieldInc)
+    {
+        maxShield += shieldInc;
+    }
+
+    public void IncreaseDamage(float damageInc)
+    {
+        damageComp.weaponDamage += damageInc;
+    }
+
+    public void IncreaseCooldownSpeed()
+    {
+
     }
 }

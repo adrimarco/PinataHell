@@ -9,6 +9,7 @@ public class HitEnemies : MonoBehaviour
     private Camera cam;
     private bool attacking = false;
     private CapsuleCollider batCollider;
+    public float weaponDamage = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +43,7 @@ public class HitEnemies : MonoBehaviour
         EnemyCollider enemyCollider;
         if (other.gameObject.TryGetComponent<EnemyCollider>(out enemyCollider))
         {
-            enemyCollider.Damage(5f);
+            enemyCollider.Damage(weaponDamage);
         }
     }
 
