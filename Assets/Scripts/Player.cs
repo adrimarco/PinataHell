@@ -9,12 +9,19 @@ public class Player : MonoBehaviour
     // Player stats
     [Header("Player stats")]
     public float maxHealth = 100.0f;
+    private float health = 100.0f;
+
     [SerializeField]
     private float _movementSpeed = 4.0f;
-    private float health = 100.0f;
-    private int candies = 0;
+
     private float shield = 0;
     private float maxShield = 0;
+    private float shieldRecoverTime = 0;
+    private float shieldRecoverTimeWhenBroken = 8f;
+    private float shieldRecoverTimeWhenNoBroken = 2f;
+    private float shieldRecoverSpeedMultiplier = 1f;
+
+    private int candies = 0;
 
     public float movementSpeed
     {
@@ -78,13 +85,37 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        RecoverShield();
     }
 
     public void Damage(float damage)
     {
-        health -= damage;
+        if (shield > 0)
+        {
+            DamageShield(damage);
+        }
+        else
+        {
+            health -= damage;
+        }
+
         hud.UpdateHealthBar(shield, health, maxHealth);
+    }
+
+    private void DamageShield(float damage)
+    {
+        shield -= damage;
+        if (shield <= 0)
+        {
+            // Shield broken
+            shield = 0;
+            shieldRecoverTime = shieldRecoverTimeWhenBroken;
+        }
+        else
+        {
+            // Shield not broken
+            shieldRecoverTime = shieldRecoverTimeWhenNoBroken;
+        }
     }
 
     public void Interaction()
@@ -214,6 +245,28 @@ public class Player : MonoBehaviour
     public void IncreaseShieldCapacity(float shieldInc)
     {
         maxShield += shieldInc;
+        shieldRecoverTime = 0;
+    }
+
+    public void RecoverShield()
+    {
+        if (shield >= maxShield) return;
+
+        if (shieldRecoverTime > 0)
+        {
+            shieldRecoverTime -= Time.deltaTime;
+        }
+        else
+        {
+            shield = Mathf.Min(shield + Time.deltaTime * 3 * shieldRecoverSpeedMultiplier, maxShield);
+            hud.UpdateHealthBar(shield, health, maxHealth);
+        }
+    }
+
+    public void RecoverShield(float shieldInc)
+    {
+        shield += shieldInc;
+        hud.UpdateHealthBar(shield, health, maxHealth);
     }
 
     public void IncreaseDamage(float damageInc)
