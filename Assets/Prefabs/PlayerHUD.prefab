@@ -412,10 +412,9 @@ MonoBehaviour:
   candiesText: {fileID: 6987289198419635646}
   currentSkillIcon: {fileID: 6304076127446205219}
   showSkillLayer: {fileID: 4336318872129355257}
-  skillIcon: {fileID: 2216206303614744500}
-  skillDescription: {fileID: 5666766938451802059}
+  showSkillIcon: {fileID: 2216206303614744500}
+  showSkillDescription: {fileID: 5666766938451802059}
   changeSkillLayer: {fileID: 3380053064147788869}
-  changeSkillIcon: {fileID: 5558346777817352167}
   newSkillIcon: {fileID: 4859441226090298326}
 --- !u!1 &3380053064147788869
 GameObject:
@@ -960,8 +959,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 80, y: 80}
-  m_SizeDelta: {x: 360, y: 60}
+  m_AnchoredPosition: {x: 80, y: 120}
+  m_SizeDelta: {x: 360, y: 20}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &5169604091550979572
 CanvasRenderer:

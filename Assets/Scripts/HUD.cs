@@ -16,14 +16,13 @@ public class HUD : MonoBehaviour
     [Header("Show new skill layer")]
     // Show skill layer, for showing new skills unlocked
     public GameObject showSkillLayer;
-    public Image skillIcon;
-    public TextMeshProUGUI skillDescription;
+    public Image showSkillIcon;
+    public TextMeshProUGUI showSkillDescription;
 
     [Space(10)]
     [Header("Change skill layer")]
     // Change skill layer, to decide if changing current skill
     public GameObject changeSkillLayer;
-    public GameObject changeSkillIcon;
     public Image newSkillIcon;
 
     // Start is called before the first frame update
@@ -31,23 +30,12 @@ public class HUD : MonoBehaviour
     {
         showSkillLayer.SetActive(false);
         changeSkillLayer.SetActive(false);
+        currentSkillIcon.gameObject.SetActive(false);
     }
 
     public void ShowChangeSkillLayer(SkillData newSkill, SkillData currentSkill)
     {
         newSkillIcon.sprite = newSkill.icon;
-
-        if (currentSkill != null)
-        {
-            currentSkillIcon.gameObject.SetActive(true);
-            changeSkillIcon.SetActive(true);
-        }
-        else
-        {
-            currentSkillIcon.gameObject.SetActive(false);
-            changeSkillIcon.SetActive(false);
-        }
-
         changeSkillLayer.SetActive(true);
     }
 
@@ -60,8 +48,8 @@ public class HUD : MonoBehaviour
     {
         if (skill == null) return;
 
-        skillIcon.sprite = skill.icon;
-        skillDescription.text = skill.description;
+        showSkillIcon.sprite = skill.icon;
+        showSkillDescription.text = skill.description;
         showSkillLayer.SetActive(true);
     }
 
@@ -72,7 +60,11 @@ public class HUD : MonoBehaviour
 
     public void ChangeCurrentSkill(SkillData newSkill)
     {
-        if (newSkill != null) currentSkillIcon.sprite = newSkill.icon;
+        if (newSkill != null)
+        {
+            currentSkillIcon.gameObject.SetActive(true);
+            currentSkillIcon.sprite = newSkill.icon;
+        }
     }
 
     public void SetCandiesAmount(int candiesAmount)

@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     private float _movementSpeed = 4.0f;
     private float health = 100.0f;
     private int candies = 0;
+    private float shield = 0;
 
     public float movementSpeed
     {
@@ -58,9 +59,11 @@ public class Player : MonoBehaviour
         input.interactInputEvent.AddListener(Interaction);
 
 
-        // Update stats
+        // Update stats and hud
         health = maxHealth;
         movementSpeed = _movementSpeed;
+        candies = 0;
+        hud.UpdateHealthBar(shield, health, maxHealth);
 
         Enemy.onEnemyDead.AddListener(AddCandies);
     }
@@ -74,7 +77,7 @@ public class Player : MonoBehaviour
     public void Damage(float damage)
     {
         health -= damage;
-        hud.UpdateHealthBar(0, health, maxHealth);
+        hud.UpdateHealthBar(shield, health, maxHealth);
     }
 
     public void Interaction()
@@ -159,7 +162,7 @@ public class Player : MonoBehaviour
     public void Heal(float healing)
     {
         health = Mathf.Min(health + healing, maxHealth);
-        hud.UpdateHealthBar(0, health, maxHealth);
+        hud.UpdateHealthBar(shield, health, maxHealth);
     }
 
     public void AddCandies(int candiesAmount)
