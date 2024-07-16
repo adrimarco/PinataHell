@@ -6,6 +6,8 @@ using UnityEngine.Windows;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance = null;
+
     // Player stats
     [Header("Player stats")]
     public float maxHealth = 100.0f;
@@ -56,6 +58,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Instance = this;
+
         // Get references to necessary components
         rb = GetComponent<Rigidbody>();
 
@@ -69,6 +73,7 @@ public class Player : MonoBehaviour
         input.attackInputEvent.AddListener(Attack);
         input.interactInputEvent.AddListener(Interaction);
         input.shopInputEvent.AddListener(ToggleShop);
+        input.useSkillInputEvent.AddListener(UseSkill);
 
 
         // Update stats and hud
@@ -166,6 +171,9 @@ public class Player : MonoBehaviour
     {
         if (activeSkill == null) return;
 
+        activeSkill.skill.OnDeactivate();
+
+        Destroy(activeSkill.skill);
         Destroy(activeSkill);
         activeSkill = null;
     }
@@ -173,12 +181,15 @@ public class Player : MonoBehaviour
     public void AddActiveSkill(SkillData newSkill)
     {
         if (activeSkill != null) return;
-
+        
         activeSkill = gameObject.AddComponent<SkillData>();
         activeSkill.icon = newSkill.icon;
         activeSkill.description = newSkill.description;
-        activeSkill.skill = newSkill.skill;
+        activeSkill.skill = newSkill.skill.CopyComponent(gameObject);
 
+        activeSkill.skill.OnActivate();
+
+        // HUD visualization
         hud.ChangeCurrentSkill(activeSkill);
 
         // Cancel invocation of hide function, necessary if other skill was picked recently
@@ -187,6 +198,13 @@ public class Player : MonoBehaviour
         // Show new skill information on HUD
         hud.ShowShowSkillLayer(activeSkill);
         hud.Invoke("HideShowSkillLayer", 5.0f);
+    }
+
+    public void UseSkill()
+    {
+        if (activeSkill == null || activeSkill.skill == null) return;
+
+        activeSkill.skill.OnUse();
     }
 
     public void AddPickable(GameObject p)
