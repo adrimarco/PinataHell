@@ -58,4 +58,9 @@ public class Pickable : MonoBehaviour
         OnPlayerEndOverlap();
         Destroy(gameObject);
     }
+
+    private void OnDestroy()
+    {
+        OnPlayerEndOverlap();
+    }
 }

@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: -8963975945028876408}
   - component: {fileID: -4139207438336876154}
   - component: {fileID: 6971289525349981851}
-  - component: {fileID: -4094847500731243949}
+  - component: {fileID: -4978288766855224471}
   m_Layer: 8
   m_Name: SkillPickup
   m_TagString: Untagged
@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511b292c508b58644a0932fe4b663f3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-4094847500731243949
+--- !u!114 &-4978288766855224471
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -307,9 +307,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8986041445268934984}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63a6fcac5862f0a44b6eaab4ab8373f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 42b47bd94d3b8664298c514f334a754c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesh: {fileID: 2492271088047734920}
   time: 30
-  animationTime: 10
+  mesh: {fileID: 2492271088047734920}
+  blinkTime: 10
