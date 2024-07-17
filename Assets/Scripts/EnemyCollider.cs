@@ -6,10 +6,12 @@ public class EnemyCollider : MonoBehaviour
 {
     public Enemy enemy = null;
     private Rigidbody rb;
+    private Animation anim;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animation>();
     }
 
     public void Damage(float damage)
@@ -18,7 +20,14 @@ public class EnemyCollider : MonoBehaviour
 
         bool isDead = enemy.Damage(damage);
 
-        if (isDead) OnEnemyDead();
+        if (isDead)
+        {
+            OnEnemyDead();
+        }
+        else
+        {
+            anim.Play();
+        }
     }
 
     public void OnEnemyDead()

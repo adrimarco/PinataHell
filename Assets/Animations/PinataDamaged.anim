@@ -1,0 +1,204 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!74 &7400000
+AnimationClip:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PinataDamaged
+  serializedVersion: 7
+  m_Legacy: 1
+  m_Compressed: 0
+  m_UseHighQualityCurve: 1
+  m_RotationCurves: []
+  m_CompressedRotationCurves: []
+  m_EulerCurves: []
+  m_PositionCurves: []
+  m_ScaleCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 1.5, y: 1.5, z: 1.5}
+        inSlope: {x: 0, y: 0, z: -0.24773069}
+        outSlope: {x: -0.2639936, y: -0.17599668, z: -0.24773069}
+        tangentMode: 0
+        weightedMode: 2
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.50135493, y: 0.50135493, z: 0.498645}
+      - serializedVersion: 3
+        time: 0.16666667
+        value: {x: 0.8, y: 0.8, z: 0.8}
+        inSlope: {x: 0.06330932, y: 0.0000007250806, z: 0.010823096}
+        outSlope: {x: 0.010823096, y: 0.010788649, z: 0.010823096}
+        tangentMode: 0
+        weightedMode: 3
+        inWeight: {x: 0.4878049, y: 0.49322498, z: 0.49322498}
+        outWeight: {x: 0.49780974, y: 0.49939921, z: 0.49780974}
+      - serializedVersion: 3
+        time: 0.5
+        value: {x: 1.5, y: 1.5, z: 1.5}
+        inSlope: {x: -0.049093246, y: -0.049405996, z: -0.01310723}
+        outSlope: {x: -0.049093246, y: -0.049405996, z: -0.01310723}
+        tangentMode: 0
+        weightedMode: 1
+        inWeight: {x: 0.5021903, y: 0.49901134, z: 0.49901134}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: EnemyMesh
+  m_FloatCurves: []
+  m_PPtrCurves: []
+  m_SampleRate: 60
+  m_WrapMode: 0
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_ClipBindingConstant:
+    genericBindings: []
+    pptrCurveMapping: []
+  m_AnimationClipSettings:
+    serializedVersion: 2
+    m_AdditiveReferencePoseClip: {fileID: 0}
+    m_AdditiveReferencePoseTime: 0
+    m_StartTime: 0
+    m_StopTime: 0.5
+    m_OrientationOffsetY: 0
+    m_Level: 0
+    m_CycleOffset: 0
+    m_HasAdditiveReferencePose: 0
+    m_LoopTime: 1
+    m_LoopBlend: 0
+    m_LoopBlendOrientation: 0
+    m_LoopBlendPositionY: 0
+    m_LoopBlendPositionXZ: 0
+    m_KeepOriginalOrientation: 0
+    m_KeepOriginalPositionY: 1
+    m_KeepOriginalPositionXZ: 0
+    m_HeightFromFeet: 0
+    m_Mirror: 0
+  m_EditorCurves:
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1.5
+        inSlope: 0
+        outSlope: -0.2639936
+        tangentMode: 1
+        weightedMode: 2
+        inWeight: 0.33333334
+        outWeight: 0.50135493
+      - serializedVersion: 3
+        time: 0.16666667
+        value: 0.8
+        inSlope: 0.06330932
+        outSlope: 0.010823096
+        tangentMode: 1
+        weightedMode: 3
+        inWeight: 0.4878049
+        outWeight: 0.49780974
+      - serializedVersion: 3
+        time: 0.5
+        value: 1.5
+        inSlope: -0.049093246
+        outSlope: -0.049093246
+        tangentMode: 0
+        weightedMode: 1
+        inWeight: 0.5021903
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalScale.x
+    path: EnemyMesh
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1.5
+        inSlope: 0
+        outSlope: -0.17599668
+        tangentMode: 1
+        weightedMode: 2
+        inWeight: 0.33333334
+        outWeight: 0.50135493
+      - serializedVersion: 3
+        time: 0.16666667
+        value: 0.8
+        inSlope: 0.0000007250806
+        outSlope: 0.010788649
+        tangentMode: 1
+        weightedMode: 3
+        inWeight: 0.49322498
+        outWeight: 0.49939921
+      - serializedVersion: 3
+        time: 0.5
+        value: 1.5
+        inSlope: -0.049405996
+        outSlope: -0.049405996
+        tangentMode: 0
+        weightedMode: 1
+        inWeight: 0.49901134
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalScale.y
+    path: EnemyMesh
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1.5
+        inSlope: -0.24773069
+        outSlope: -0.24773069
+        tangentMode: 0
+        weightedMode: 2
+        inWeight: 0.33333334
+        outWeight: 0.498645
+      - serializedVersion: 3
+        time: 0.16666667
+        value: 0.8
+        inSlope: 0.010823096
+        outSlope: 0.010823096
+        tangentMode: 0
+        weightedMode: 3
+        inWeight: 0.49322498
+        outWeight: 0.49780974
+      - serializedVersion: 3
+        time: 0.5
+        value: 1.5
+        inSlope: -0.01310723
+        outSlope: -0.01310723
+        tangentMode: 0
+        weightedMode: 1
+        inWeight: 0.49901134
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalScale.z
+    path: EnemyMesh
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  m_EulerEditorCurves: []
+  m_HasGenericRootTransform: 0
+  m_HasMotionFloatCurves: 0
+  m_Events: []
