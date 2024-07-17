@@ -122,6 +122,16 @@ namespace StarterAssets
 			CameraRotation();
 		}
 
+		public void SetVerticalVelocity(float impulse)
+		{
+			_verticalVelocity = impulse;
+		}
+
+		public float GetVerticalVelocity()
+		{
+			return _verticalVelocity;
+		}
+
 		private void GroundedCheck()
 		{
 			// set sphere position, with offset

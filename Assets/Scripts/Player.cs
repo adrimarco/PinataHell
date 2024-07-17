@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
     private Camera cam = null;
     private CapsuleCollider playerCollider = null;
     private StarterAssets.StarterAssetsInputs input = null;
-    private StarterAssets.FirstPersonController controller = null;
+    public StarterAssets.FirstPersonController controller = null;
 
     // Skills
     private SkillData activeSkill = null;
