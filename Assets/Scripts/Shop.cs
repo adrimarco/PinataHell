@@ -9,6 +9,7 @@ public class Shop : MonoBehaviour
     const int SHIELD_INITIAL_COST = 500;
     const int DAMAGE_INITIAL_COST = 100;
     const int COOLDOWN_INITIAL_COST = 800;
+    const int MAX_COOLDOWN_LEVEL = 15;
 
     private Player player = null;
 
@@ -66,8 +67,8 @@ public class Shop : MonoBehaviour
         damageLevelText.text = damageLevel.ToString() + " > " + (damageLevel + 1).ToString();
         damageCostText.color = damageBuyText.color = player.GetCandiesAmount() >= damageCost ? Color.white : Color.red;
 
-        cooldownCostText.text = cooldownCost.ToString();
-        cooldownLevelText.text = cooldownLevel.ToString() + " > " + (cooldownLevel + 1).ToString();
+        cooldownCostText.text = cooldownLevel >= MAX_COOLDOWN_LEVEL ? "" : cooldownCost.ToString();
+        cooldownLevelText.text = cooldownLevel >= MAX_COOLDOWN_LEVEL ? MAX_COOLDOWN_LEVEL.ToString() : cooldownLevel.ToString() + " > " + (cooldownLevel + 1).ToString();
         cooldownCostText.color = cooldownBuyText.color = player.GetCandiesAmount() >= cooldownCost ? Color.white : Color.red;
     }
 
@@ -118,15 +119,20 @@ public class Shop : MonoBehaviour
 
     public void BuyCooldown()
     {
-        if (player.GetCandiesAmount() < cooldownCost) return;
+        if (cooldownLevel < MAX_COOLDOWN_LEVEL && player.GetCandiesAmount() < cooldownCost) return;
 
         // Effect
         player.IncreaseCooldownSpeed();
         player.ReduceCandies(cooldownCost);
 
         // Update values
-        cooldownCost += COOLDOWN_INITIAL_COST;
         cooldownLevel += 1;
+        if (cooldownLevel >= MAX_COOLDOWN_LEVEL)
+        {
+            cooldownCost = 0;
+            cooldownBuyText.text = "Max Level";
+        }
+        else cooldownCost += COOLDOWN_INITIAL_COST;
 
         UpdateUI();
     }

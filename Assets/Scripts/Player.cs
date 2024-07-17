@@ -7,6 +7,7 @@ using UnityEngine.Windows;
 public class Player : MonoBehaviour
 {
     const float COOLDOWN_LIMIT = 10f;
+
     public static Player Instance = null;
 
     // Player stats
@@ -216,14 +217,14 @@ public class Player : MonoBehaviour
 
         activeSkill.skill.OnUse();
 
-        skillCooldown = Mathf.Max(activeSkill.cooldown * cooldownMultiplier, COOLDOWN_LIMIT);
+        skillCooldown = activeSkill.cooldown;
     }
 
     private void SkillOnCooldown()
     {
         if (skillCooldown > 0)
         {
-            skillCooldown -= Time.deltaTime;
+            skillCooldown -= Time.deltaTime * cooldownMultiplier;
             hud.UpdateSkillCooldownBar((activeSkill.cooldown - skillCooldown) / activeSkill.cooldown);
         }
     }
@@ -327,6 +328,6 @@ public class Player : MonoBehaviour
 
     public void IncreaseCooldownSpeed()
     {
-        cooldownMultiplier -= 0.05f;
+        cooldownMultiplier += 0.2f;
     }
 }
