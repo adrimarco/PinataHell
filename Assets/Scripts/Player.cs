@@ -6,6 +6,7 @@ using UnityEngine.Windows;
 
 public class Player : MonoBehaviour
 {
+    const float COOLDOWN_LIMIT = 10f;
     public static Player Instance = null;
 
     // Player stats
@@ -22,6 +23,9 @@ public class Player : MonoBehaviour
     private float shieldRecoverTimeWhenBroken = 8f;
     private float shieldRecoverTimeWhenNoBroken = 2f;
     private float shieldRecoverSpeedMultiplier = 1f;
+
+    private float skillCooldown = 0f;
+    private float cooldownMultiplier = 1f;
 
     private int candies = 0;
 
@@ -92,6 +96,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         RecoverShield();
+        SkillOnCooldown();
     }
 
     public void Damage(float damage)
@@ -185,9 +190,12 @@ public class Player : MonoBehaviour
         activeSkill = gameObject.AddComponent<SkillData>();
         activeSkill.icon = newSkill.icon;
         activeSkill.description = newSkill.description;
+        activeSkill.cooldown = newSkill.cooldown;
         activeSkill.skill = newSkill.skill.CopyComponent(gameObject);
 
         activeSkill.skill.OnActivate();
+
+        skillCooldown = Mathf.Min(skillCooldown, COOLDOWN_LIMIT);
 
         // HUD visualization
         hud.ChangeCurrentSkill(activeSkill);
@@ -204,7 +212,20 @@ public class Player : MonoBehaviour
     {
         if (activeSkill == null || activeSkill.skill == null) return;
 
+        if (skillCooldown > 0) return;
+
         activeSkill.skill.OnUse();
+
+        skillCooldown = Mathf.Max(activeSkill.cooldown * cooldownMultiplier, COOLDOWN_LIMIT);
+    }
+
+    private void SkillOnCooldown()
+    {
+        if (skillCooldown > 0)
+        {
+            skillCooldown -= Time.deltaTime;
+            hud.UpdateSkillCooldownBar((activeSkill.cooldown - skillCooldown) / activeSkill.cooldown);
+        }
     }
 
     public void AddPickable(GameObject p)
@@ -306,6 +327,6 @@ public class Player : MonoBehaviour
 
     public void IncreaseCooldownSpeed()
     {
-
+        cooldownMultiplier -= 0.05f;
     }
 }

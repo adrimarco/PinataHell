@@ -11,6 +11,7 @@ public class HUD : MonoBehaviour
     public Image shieldBar;
     public TextMeshProUGUI candiesText;
     public Image currentSkillIcon;
+    public Image skillCooldownBar;
 
     [Space(10)]
     [Header("Show new skill layer")]
@@ -77,5 +78,10 @@ public class HUD : MonoBehaviour
         shieldBar.fillAmount = Mathf.Clamp(shield/maxHealth, 0, 1);
         
         healthBar.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);
+    }
+
+    public void UpdateSkillCooldownBar(float cooldownPercentage)
+    {
+        skillCooldownBar.fillAmount = cooldownPercentage;
     }
 }

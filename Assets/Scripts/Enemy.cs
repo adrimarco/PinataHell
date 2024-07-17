@@ -54,7 +54,6 @@ public class Enemy : MonoBehaviour
 
         // Apply stun to enemy
         ApplyStun(1.5f);
-        navAgent.SetDestination(navAgent.transform.position);
 
         return false;
     }
@@ -62,6 +61,7 @@ public class Enemy : MonoBehaviour
     public void ApplyStun(float time)
     {
         stunTime = Mathf.Max(stunTime, time);
+        navAgent.SetDestination(navAgent.transform.position);
     }
 
     public bool IsStunned()

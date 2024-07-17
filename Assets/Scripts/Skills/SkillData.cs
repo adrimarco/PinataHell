@@ -6,6 +6,7 @@ public class SkillData : MonoBehaviour
 {
     public Sprite icon;
     public string description;
+    public float cooldown;
     public SkillBase skill;
 
     private void Awake()

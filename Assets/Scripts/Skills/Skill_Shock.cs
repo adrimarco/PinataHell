@@ -21,7 +21,7 @@ public class Skill_Shock : SkillBase
 
         foreach(GameObject enemy in enemies)
         {
-            if(Vector3.Distance(playerPosition, enemy.transform.position) < 20)
+            if(Vector3.Distance(playerPosition, enemy.transform.position) < 11)
             {
                 Enemy e;
                 if(enemy.TryGetComponent<Enemy>(out e))
