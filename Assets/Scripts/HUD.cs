@@ -83,5 +83,7 @@ public class HUD : MonoBehaviour
     public void UpdateSkillCooldownBar(float cooldownPercentage)
     {
         skillCooldownBar.fillAmount = cooldownPercentage;
+
+        currentSkillIcon.color = cooldownPercentage >= 1 ? Color.white : new Color(0.5f, 0.5f, 0.5f, 0.5f);
     }
 }
