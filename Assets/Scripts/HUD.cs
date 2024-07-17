@@ -26,12 +26,16 @@ public class HUD : MonoBehaviour
     public GameObject changeSkillLayer;
     public Image newSkillIcon;
 
+    private Animation anim;
+
     // Start is called before the first frame update
     void Start()
     {
         showSkillLayer.SetActive(false);
         changeSkillLayer.SetActive(false);
         currentSkillIcon.gameObject.SetActive(false);
+
+        anim = GetComponent<Animation>();
     }
 
     public void ShowChangeSkillLayer(SkillData newSkill, SkillData currentSkill)
@@ -49,8 +53,11 @@ public class HUD : MonoBehaviour
     {
         if (skill == null) return;
 
+        if (anim.isPlaying) anim.Stop();
+
         showSkillIcon.sprite = skill.icon;
         showSkillDescription.text = skill.description;
+        anim.Play();
         showSkillLayer.SetActive(true);
     }
 

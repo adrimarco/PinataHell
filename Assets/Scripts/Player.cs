@@ -201,12 +201,8 @@ public class Player : MonoBehaviour
         // HUD visualization
         hud.ChangeCurrentSkill(activeSkill);
 
-        // Cancel invocation of hide function, necessary if other skill was picked recently
-        hud.CancelInvoke("HideShowSkillLayer");
-
         // Show new skill information on HUD
         hud.ShowShowSkillLayer(activeSkill);
-        hud.Invoke("HideShowSkillLayer", 5.0f);
     }
 
     public void UseSkill()
