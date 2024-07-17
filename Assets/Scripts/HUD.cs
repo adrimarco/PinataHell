@@ -6,43 +6,41 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    // Show skill layer, for showing new skills unlocked
+    [Header("HUD")]
+    public Image healthBar;
+    public Image shieldBar;
+    public TextMeshProUGUI candiesText;
+    public Image currentSkillIcon;
+    public Image skillCooldownBar;
+
+    [Space(10)]
     [Header("Show new skill layer")]
+    // Show skill layer, for showing new skills unlocked
     public GameObject showSkillLayer;
-    public Image skillIcon;
-    public TextMeshProUGUI skillDescription;
+    public Image showSkillIcon;
+    public TextMeshProUGUI showSkillDescription;
 
     [Space(10)]
     [Header("Change skill layer")]
     // Change skill layer, to decide if changing current skill
     public GameObject changeSkillLayer;
-    public GameObject changeSkillIcon;
-    public Image currentSkillIcon;
     public Image newSkillIcon;
+
+    private Animation anim;
 
     // Start is called before the first frame update
     void Start()
     {
         showSkillLayer.SetActive(false);
         changeSkillLayer.SetActive(false);
+        currentSkillIcon.gameObject.SetActive(false);
+
+        anim = GetComponent<Animation>();
     }
 
     public void ShowChangeSkillLayer(SkillData newSkill, SkillData currentSkill)
     {
         newSkillIcon.sprite = newSkill.icon;
-
-        if (currentSkill != null)
-        {
-            currentSkillIcon.sprite = currentSkill.icon;
-            currentSkillIcon.gameObject.SetActive(true);
-            changeSkillIcon.SetActive(true);
-        }
-        else
-        {
-            currentSkillIcon.gameObject.SetActive(false);
-            changeSkillIcon.SetActive(false);
-        }
-
         changeSkillLayer.SetActive(true);
     }
 
@@ -55,13 +53,44 @@ public class HUD : MonoBehaviour
     {
         if (skill == null) return;
 
-        skillIcon.sprite = skill.icon;
-        skillDescription.text = skill.description;
+        if (anim.isPlaying) anim.Stop();
+
+        showSkillIcon.sprite = skill.icon;
+        showSkillDescription.text = skill.description;
+        anim.Play();
         showSkillLayer.SetActive(true);
     }
 
     public void HideShowSkillLayer()
     {
         showSkillLayer.SetActive(false);
+    }
+
+    public void ChangeCurrentSkill(SkillData newSkill)
+    {
+        if (newSkill != null)
+        {
+            currentSkillIcon.gameObject.SetActive(true);
+            currentSkillIcon.sprite = newSkill.icon;
+        }
+    }
+
+    public void SetCandiesAmount(int candiesAmount)
+    {
+        candiesText.text = candiesAmount.ToString();
+    }
+
+    public void UpdateHealthBar(float shield, float health, float maxHealth)
+    {
+        shieldBar.fillAmount = Mathf.Clamp(shield/maxHealth, 0, 1);
+        
+        healthBar.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);
+    }
+
+    public void UpdateSkillCooldownBar(float cooldownPercentage)
+    {
+        skillCooldownBar.fillAmount = cooldownPercentage;
+
+        currentSkillIcon.color = cooldownPercentage >= 1 ? Color.white : new Color(0.5f, 0.5f, 0.5f, 0.5f);
     }
 }

@@ -25,7 +25,8 @@ public class Pickable : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == overlappingPlayer.gameObject)
+        Player player;
+        if (other.CompareTag("Player") && other.gameObject.TryGetComponent<Player>(out player))
         {
             OnPlayerEndOverlap();
         }
@@ -56,5 +57,10 @@ public class Pickable : MonoBehaviour
         }
         OnPlayerEndOverlap();
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        OnPlayerEndOverlap();
     }
 }

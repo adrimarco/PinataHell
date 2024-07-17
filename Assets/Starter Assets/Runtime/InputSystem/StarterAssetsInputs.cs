@@ -24,6 +24,8 @@ namespace StarterAssets
 
 		public UnityEvent attackInputEvent;
 		public UnityEvent interactInputEvent;
+		public UnityEvent shopInputEvent;
+		public UnityEvent useSkillInputEvent;
 
 #if ENABLE_INPUT_SYSTEM
         public void OnMove(InputValue value)
@@ -63,6 +65,22 @@ namespace StarterAssets
             if (value.isPressed)
             {
                 interactInputEvent.Invoke();
+            }
+        }
+
+		public void OnShop(InputValue value)
+		{
+			if (value.isPressed)
+			{
+				shopInputEvent.Invoke();
+			}
+		}
+
+        public void OnUseSkill(InputValue value)
+        {
+            if (value.isPressed)
+            {
+                useSkillInputEvent.Invoke();
             }
         }
 #endif

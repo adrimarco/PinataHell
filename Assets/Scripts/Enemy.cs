@@ -1,20 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] Transform aiTarget;
+    Transform aiTarget;
     NavMeshAgent navAgent;
 
     // Enemy stats
-    private float health = 10.0f;
+    public float health = 10.0f;
+    public float attackDamage = 10.0f;
+    public int candies = 10;
     private float stunTime = 0.0f;
+
+    public static UnityEvent<int> onEnemyDead = new UnityEvent<int>();
 
     // Start is called before the first frame update
     void Start()
     {
+        aiTarget = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         navAgent = GetComponent<NavMeshAgent>();
     }
 
@@ -33,18 +40,32 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void Damage(float damage)
+    public bool Damage(float damage)
     {
         health -= damage;
 
         if (health <= 0)
         {
             Destroy(gameObject);
-        } 
-        else
-        {
-            stunTime = 1.5f;
-            navAgent.SetDestination(navAgent.transform.position);
+            onEnemyDead.Invoke(candies);
+
+            return true;
         }
+
+        // Apply stun to enemy
+        ApplyStun(1.5f);
+
+        return false;
+    }
+
+    public void ApplyStun(float time)
+    {
+        stunTime = Mathf.Max(stunTime, time);
+        navAgent.SetDestination(navAgent.transform.position);
+    }
+
+    public bool IsStunned()
+    {
+        return stunTime > 0f;
     }
 }
