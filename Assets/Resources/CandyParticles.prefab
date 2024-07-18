@@ -116,7 +116,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 8
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -3803,10 +3803,10 @@ ParticleSystem:
       serializedVersion: 2
       m_Bits: 9
     maxCollisionShapes: 128
-    quality: 1
+    quality: 0
     voxelSize: 0.2
     collisionMessages: 0
-    collidesWithDynamic: 1
+    collidesWithDynamic: 0
     interiorCollisions: 0
   TriggerModule:
     enabled: 0
@@ -4786,7 +4786,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 3e912213b43ec074eb25ad01a7786564, type: 3}
+  - {fileID: -876546973899608171, guid: f9f9215a0d0a74245b6db753b0187d7e, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
