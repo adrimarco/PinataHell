@@ -9,9 +9,9 @@ public class Enemy : MonoBehaviour
 {
     Transform aiTarget;
     NavMeshAgent navAgent;
+    public EnemyHealth healthComp;
 
     // Enemy stats
-    public float health = 10.0f;
     public float attackDamage = 10.0f;
     public int candies = 10;
     private float stunTime = 0.0f;
@@ -23,6 +23,9 @@ public class Enemy : MonoBehaviour
     {
         aiTarget = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         navAgent = GetComponent<NavMeshAgent>();
+        healthComp = GetComponent<EnemyHealth>();
+        healthComp.onDamaged.AddListener(OnDamaged);
+        healthComp.onDead.AddListener(OnDead);
     }
 
     // Update is called once per frame
@@ -40,22 +43,16 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public bool Damage(float damage)
+    
+    public void OnDamaged()
     {
-        health -= damage;
-
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-            onEnemyDead.Invoke(candies);
-
-            return true;
-        }
-
-        // Apply stun to enemy
         ApplyStun(1.5f);
+    }
 
-        return false;
+    public void OnDead()
+    {
+        Destroy(gameObject);
+        onEnemyDead.Invoke(candies);
     }
 
     public void ApplyStun(float time)

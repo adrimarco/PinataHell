@@ -13,8 +13,6 @@ public class DarkPinataSpawner : MonoBehaviour
     void Start()
     {
         GetSpawnPointsFromChildren();
-
-        InvokeRepeating("SpawnDarkPinata", 2, 5);
     }
 
     
