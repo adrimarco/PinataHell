@@ -46,8 +46,12 @@ public class Player : MonoBehaviour
 
 
     // Components
+    [Header("UI")]
     public HUD hud = null;
     public Shop shopUI = null;
+    public DarkPinataUITimer darkPinataUI = null;
+
+    [Header("Components")]
     public HitEnemies damageComp = null;
     private Rigidbody rb = null;
     private Camera cam = null;
@@ -81,14 +85,19 @@ public class Player : MonoBehaviour
         input.useSkillInputEvent.AddListener(UseSkill);
 
 
-        // Update stats and hud
+        // Update stats
         health = maxHealth;
         movementSpeed = _movementSpeed;
         candies = 0;
+
+        // Initialize UI
         hud.UpdateHealthBar(shield, health, maxHealth);
 
         shopUI.gameObject.SetActive(false);
         shopUI.SetPlayer(this);
+
+        darkPinataUI.gameObject.SetActive(false);
+
 
         Enemy.onEnemyDead.AddListener(AddCandies);
     }

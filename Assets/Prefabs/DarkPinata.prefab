@@ -10,6 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1150308541142893028, guid: 3c1a16e4c0a98094090408f5e315f4ca,
         type: 3}
+      propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150308541142893028, guid: 3c1a16e4c0a98094090408f5e315f4ca,
+        type: 3}
       propertyPath: onDamaged.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}

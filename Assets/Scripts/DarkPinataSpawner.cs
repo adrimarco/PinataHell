@@ -13,6 +13,7 @@ public class DarkPinataSpawner : MonoBehaviour
     void Start()
     {
         GetSpawnPointsFromChildren();
+        Invoke("SpawnDarkPinata", 5);
     }
 
     
@@ -20,6 +21,8 @@ public class DarkPinataSpawner : MonoBehaviour
     {
         GameObject spawnPoint = GetRandomSpawnPoint();
         GameObject darkPinata = Instantiate(darkPinataPrefab, spawnPoint.transform);
+
+        Player.Instance.darkPinataUI.SetTimer(65);
     }
 
     private void GetSpawnPointsFromChildren()
