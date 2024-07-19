@@ -13,6 +13,8 @@ public class DarkPinataSpawner : MonoBehaviour
     void Start()
     {
         GetSpawnPointsFromChildren();
+
+        InvokeRepeating("SpawnDarkPinata", 2, 5);
     }
 
     
@@ -24,10 +26,13 @@ public class DarkPinataSpawner : MonoBehaviour
 
     private void GetSpawnPointsFromChildren()
     {
+        Transform spawnsParent = transform.Find("DarkPinataSpawnPoints");
+        if (spawnsParent == null) return;
+
         spawnPoints.Clear();
-        for (short i = 0; i < transform.childCount; i++)
+        for (short i = 0; i < spawnsParent.childCount; i++)
         {
-            spawnPoints.Add(transform.GetChild(i).gameObject);
+            spawnPoints.Add(spawnsParent.GetChild(i).gameObject);
         }
     }
 

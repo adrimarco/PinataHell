@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyCollider : MonoBehaviour
 {
     public Enemy enemy = null;
+    public MeshRenderer enemyMesh = null;
     private Rigidbody rb;
     private Animation anim;
 
@@ -34,7 +35,7 @@ public class EnemyCollider : MonoBehaviour
     {
         enemy = null;
 
-        EnemyLoot.Instance.GenerateDeadEnemy(transform);
+        EnemyLoot.Instance.GenerateDeadEnemy(transform, GetEnemyMaterial());
         EnemyLoot.Instance.SpawnRandomReward(transform.position);
         Destroy(transform.parent.gameObject);
     }
@@ -49,5 +50,12 @@ public class EnemyCollider : MonoBehaviour
             player.Damage(enemy.attackDamage);
             enemy.ApplyStun(1.0f);
         }
+    }
+
+    private Material GetEnemyMaterial()
+    {
+        if (enemyMesh == null) return null;
+
+        return enemyMesh.material;
     }
 }

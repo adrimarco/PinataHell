@@ -83,6 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 5551916892456332731}
+  enemyMesh: {fileID: 4583903707732279648}
 --- !u!65 &1926222969172425359
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -287,6 +288,12 @@ PrefabInstance:
 --- !u!4 &2811913374791016204 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f75eb06101a320a48830466fc95b3b53,
+    type: 3}
+  m_PrefabInstance: {fileID: 2346187585013676263}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &4583903707732279648 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2238879517958568327, guid: f75eb06101a320a48830466fc95b3b53,
     type: 3}
   m_PrefabInstance: {fileID: 2346187585013676263}
   m_PrefabAsset: {fileID: 0}
