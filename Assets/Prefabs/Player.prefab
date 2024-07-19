@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 8496305098688561464}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.375, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -120,7 +120,7 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 2.6
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &1404386356598080340
@@ -139,7 +139,7 @@ MonoBehaviour:
   SprintSpeed: 6
   RotationSpeed: 2
   SpeedChangeRate: 8
-  JumpHeight: 1.2
+  JumpHeight: 1.4
   Gravity: -15
   JumpTimeout: 0.1
   FallTimeout: 0.15
@@ -196,6 +196,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   shopInputEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  useSkillInputEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &6610035398841788669
@@ -306,10 +309,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  _movementSpeed: 4
+  _movementSpeed: 5
   hud: {fileID: 2688253151830761261}
   shopUI: {fileID: 5563851803502602726}
   damageComp: {fileID: 1863567822285294970}
+  controller: {fileID: 0}
 --- !u!1001 &144271497262705141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -331,7 +335,7 @@ PrefabInstance:
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.375
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81,
         type: 3}
@@ -541,7 +545,7 @@ PrefabInstance:
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.375
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}

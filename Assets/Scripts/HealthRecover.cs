@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class HealthRecover : MonoBehaviour
 {
-    public float health = 30.0f;
+    [Range(0f, 1f)]
+    public float health = 0.3f;
 
     private void OnTriggerStay(Collider other)
     {
@@ -13,7 +14,7 @@ public class HealthRecover : MonoBehaviour
         {
             if (!player.IsFullyHealed())
             {
-                player.Heal(health);
+                player.Heal(health * player.maxHealth);
                 Destroy(gameObject);
             }
         }
