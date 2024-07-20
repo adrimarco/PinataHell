@@ -22,7 +22,10 @@ public class DarkPinataSpawner : MonoBehaviour
         GameObject spawnPoint = GetRandomSpawnPoint();
         GameObject darkPinata = Instantiate(darkPinataPrefab, spawnPoint.transform);
 
+        EnemyHealth pinataHealth = darkPinata.GetComponentInChildren<EnemyHealth>();
+
         Player.Instance.darkPinataUI.SetTimer(65);
+        pinataHealth.onDead.AddListener(Player.Instance.darkPinataUI.HideTimer);
     }
 
     private void GetSpawnPointsFromChildren()

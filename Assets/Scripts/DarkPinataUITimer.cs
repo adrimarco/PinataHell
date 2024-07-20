@@ -13,6 +13,7 @@ public class DarkPinataUITimer : MonoBehaviour
     public int changeColorTime = 10;
 
     private float timer = 0f;
+    private bool damageActive = false;
     private bool activeTimer = false;
     // Time displayed in UI
     private int uiSeconds = 0;
@@ -28,24 +29,8 @@ public class DarkPinataUITimer : MonoBehaviour
     {
         if (!activeTimer) return;
 
-        timer -= Time.deltaTime;
-
-        int remainingSeconds = Mathf.CeilToInt(timer);
-        if (remainingSeconds < uiSeconds)
-        {
-            uiSeconds = remainingSeconds;
-            SetRemainingSeconds(uiSeconds);
-        }
-
-        // Deactivate timer when reaching 0
-        if (timer < 0f)
-        {
-            activeTimer = false;
-
-            if (anim != null) anim.Play(timeoutAnim);
-
-            Invoke("HideTimer", 10);
-        }
+        if (damageActive) DamagePlayer();
+        else ReduceTimer();
     }
 
     public void SetTimer(float time)
@@ -54,6 +39,7 @@ public class DarkPinataUITimer : MonoBehaviour
         {
             timer = time;
             activeTimer = true;
+            damageActive = false;
             uiSeconds = Mathf.CeilToInt(timer);
         }
 
@@ -86,10 +72,44 @@ public class DarkPinataUITimer : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+
+        activeTimer = false;
     }
 
     private void DeactivateObject()
     {
         gameObject.SetActive(false);
+    }
+
+    public void DamagePlayer()
+    {
+        timer -= Time.deltaTime;
+
+        if (timer < 0f)
+        {
+            Player p = Player.Instance;
+            p.Damage(0.02f * p.maxHealth);
+
+            timer += 1f;
+        }
+    }
+
+    private void ReduceTimer()
+    {
+        timer -= Time.deltaTime;
+
+        int remainingSeconds = Mathf.CeilToInt(timer);
+        if (remainingSeconds < uiSeconds)
+        {
+            uiSeconds = remainingSeconds;
+            SetRemainingSeconds(uiSeconds);
+        }
+
+        // Deactivate timer when reaching 0
+        if (timer < 0f)
+        {
+            damageActive = true;
+            if (anim != null) anim.Play(timeoutAnim);
+        }
     }
 }
