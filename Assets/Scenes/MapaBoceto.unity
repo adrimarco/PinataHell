@@ -9819,6 +9819,7 @@ MonoBehaviour:
     type: 3}
   maxSpawnTime: 10
   maxEnemiesCount: 5
+  maxGenerateNewDistancesTime: 3
 --- !u!4 &1004100333
 Transform:
   m_ObjectHideFlags: 0
@@ -21237,7 +21238,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.2
+  m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: bd277e9445f6b9c43bd4172fe9f44c42, type: 2}
   m_BuildHeightMesh: 0
