@@ -69,7 +69,6 @@ public class SpawnManager : MonoBehaviour
                 break;
             }
         }
-        Debug.Log(poolSpawnPoints.Count);
 
         if (poolSpawnPoints.Count > 0)
         {
