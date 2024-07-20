@@ -11,6 +11,9 @@ public class HitEnemies : MonoBehaviour
     private CapsuleCollider batCollider;
     public float weaponDamage = 5f;
 
+    // List of enemies hit in the last attack
+    private List<EnemyHealth> enemiesHit = new List<EnemyHealth>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,9 +44,10 @@ public class HitEnemies : MonoBehaviour
         }
 
         EnemyCollider enemyCollider;
-        if (other.gameObject.TryGetComponent<EnemyCollider>(out enemyCollider))
+        if (other.gameObject.TryGetComponent<EnemyCollider>(out enemyCollider) && !enemiesHit.Contains(enemyCollider.enemyHealth))
         {
             enemyCollider.Damage(weaponDamage);
+            enemiesHit.Add(enemyCollider.enemyHealth);
         }
     }
 
@@ -60,5 +64,6 @@ public class HitEnemies : MonoBehaviour
     public void AttackFinished()
     {
         attacking = false;
+        enemiesHit.Clear();
     }
 }
