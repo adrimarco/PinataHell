@@ -40,7 +40,7 @@ public class HitEnemies : MonoBehaviour
             Vector3 hitDirection = other.transform.position - transform.position;
             hitDirection.y = Mathf.Max(hitDirection.y, 0);
 
-            other.attachedRigidbody.AddForce(hitDirection.normalized * 5, ForceMode.Impulse);
+            other.attachedRigidbody.AddForce(hitDirection.normalized * 150, ForceMode.Acceleration);
         }
 
         EnemyCollider enemyCollider;
