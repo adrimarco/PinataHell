@@ -121,6 +121,7 @@ public class Player : MonoBehaviour
         }
 
         hud.UpdateHealthBar(shield, health, maxHealth);
+        hud.PlayDamagedAnim();
     }
 
     public void Attack()
@@ -272,6 +273,7 @@ public class Player : MonoBehaviour
     {
         health = Mathf.Min(health + healing, maxHealth);
         hud.UpdateHealthBar(shield, health, maxHealth);
+        hud.PlayHealAnim();
     }
 
     public void IncreaseMaxHealth(float amount)
