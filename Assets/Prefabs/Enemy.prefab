@@ -598,7 +598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc7db73d643f574ab53b65f7efcb618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthComp: {fileID: 0}
+  healthComp: {fileID: 1150308541142893028}
   attackDamage: 10
   candies: 10
 --- !u!114 &1150308541142893028
