@@ -64,12 +64,20 @@ public class ToxicGas : MapEvents
                     areasGameObjects[i].gameObject.SetActive(false);
                 }else
                 {
-                    particleSystems[i].gameObject.SetActive(true);
-                    // Reactivate object to start making damage to the player 
-                    activeArea.GetComponent<BoxCollider>().gameObject.SetActive(false);
-                    activeArea.GetComponent<BoxCollider>().gameObject.SetActive(true);
+                    StartCoroutine("ActivateToxicGas", i);
                 }
             }
         }
     }
+
+    IEnumerator ActivateToxicGas(int i)
+    {
+        particleSystems[i].gameObject.SetActive(true);
+        // Reactivate object to start making damage to the player
+        yield return new WaitForSeconds(4);
+        activeArea.GetComponent<BoxCollider>().gameObject.SetActive(false);
+        activeArea.GetComponent<BoxCollider>().gameObject.SetActive(true);
+    }
 }
+
+

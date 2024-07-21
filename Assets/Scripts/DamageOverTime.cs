@@ -27,7 +27,10 @@ public class DamageOverTime : MonoBehaviour
         }
         else
         {
-            transform.gameObject.GetComponent<Player>().Damage(damagePerSecond);
+            if (damagePerSecond > 0.0f)
+            {
+                transform.gameObject.GetComponent<Player>().Damage(damagePerSecond);
+            }
             timeHit = timeBetweenHits;
         }
     }
