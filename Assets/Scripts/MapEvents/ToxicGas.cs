@@ -1,13 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ToxicGas : MapEvents
 {
 
+
+    List<BoxCollider> areasGameObjects;
+    List<ParticleSystem> particleSystems;
+    GameObject activeArea;
+    bool checkArea = true;
+
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
@@ -21,6 +29,8 @@ public class ToxicGas : MapEvents
         {
             onMapEventState.Invoke(false);
             active = false;
+            activeArea.GetComponent<ToxicGasChild>().doDamage = false;
+            Destroy(transform.gameObject);
         } 
     }
 
@@ -28,33 +38,38 @@ public class ToxicGas : MapEvents
     {
         onMapEventState.Invoke(true);
         active = true;
-    }
-
-
-    public void OnTriggerEnter (Collider other)
-    {
-        if (!active) return;
-
-
-        Player player;
-        if (other.gameObject.TryGetComponent<Player>(out player))
+        checkArea = true;
+        areasGameObjects = new List<BoxCollider>(transform.gameObject.GetComponentsInChildren<BoxCollider>());
+        particleSystems = new List<ParticleSystem>();
+        foreach (BoxCollider t in areasGameObjects)
         {
-            int damage = (int)((2 / player.maxHealth) * 100);
-            player.Damage(damage);
-            player.transform.gameObject.GetComponent<DamageOverTime>().ResetTimer();
-            player.transform.gameObject.GetComponent<DamageOverTime>().DamageTime(damage);
+            t.gameObject.SetActive(true);
+            particleSystems.Add(t.GetComponentInChildren<ParticleSystem>());
+            particleSystems.Last<ParticleSystem>().gameObject.SetActive(false);
         }
+
+        ToxicGasChild.onPlayerEnterTrigger.AddListener(OnPlayerEnterAreaTrigger);
     }
 
-    public void OnTriggerExit(Collider other)
+    private void OnPlayerEnterAreaTrigger(GameObject areaGameObject, bool enter)
     {
-        if (!active) return;
-        
-
-        Player player;
-        if (other.gameObject.TryGetComponent<Player>(out player))
+        if (enter && checkArea)
         {
-            player.transform.gameObject.GetComponent<DamageOverTime>().DamageTime(0);
+            activeArea = areaGameObject;
+            checkArea = false;
+            for (int i = 0; i < areasGameObjects.Count; i++)
+            {
+                if (areasGameObjects[i].gameObject != activeArea)
+                {
+                    areasGameObjects[i].gameObject.SetActive(false);
+                }else
+                {
+                    particleSystems[i].gameObject.SetActive(true);
+                    // Reactivate object to start making damage to the player 
+                    activeArea.GetComponent<BoxCollider>().gameObject.SetActive(false);
+                    activeArea.GetComponent<BoxCollider>().gameObject.SetActive(true);
+                }
+            }
         }
     }
 }

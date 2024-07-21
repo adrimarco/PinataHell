@@ -1321,12 +1321,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5305871256624515941, guid: cc3a59c3e2d8d9847b189cfb2da80f33, type: 3}
---- !u!4 &204349485 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3531180677086203370, guid: cc3a59c3e2d8d9847b189cfb2da80f33,
-    type: 3}
-  m_PrefabInstance: {fileID: 1255122958}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &212295667 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4636300777304409883, guid: cc3a59c3e2d8d9847b189cfb2da80f33,
@@ -1492,12 +1486,6 @@ MeshCollider:
 --- !u!1 &226974847 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4887845434286715258, guid: cc3a59c3e2d8d9847b189cfb2da80f33,
-    type: 3}
-  m_PrefabInstance: {fileID: 1255122958}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &226974848 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8873145635909941288, guid: cc3a59c3e2d8d9847b189cfb2da80f33,
     type: 3}
   m_PrefabInstance: {fileID: 1255122958}
   m_PrefabAsset: {fileID: 0}
@@ -5748,8 +5736,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapEventsList:
-  - {fileID: 7548913830191714920, guid: f61921d7c155f214eb39c47096c2b627, type: 3}
-  maxTimerNextMapEvent: 3
+  - {fileID: 469017838249589617, guid: 7d905f39c61a81944a727b72abe6ebbc, type: 3}
+  maxTimerNextMapEvent: 10
   timerNextMapEvent: 0
 --- !u!4 &953597299
 Transform:
@@ -13376,94 +13364,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2865104911859505335, guid: cc3a59c3e2d8d9847b189cfb2da80f33, type: 3}
---- !u!1001 &1292752673
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2110963730353373115, guid: 7d905f39c61a81944a727b72abe6ebbc,
-        type: 3}
-      propertyPath: m_Name
-      value: ToxicGas
-      objectReference: {fileID: 0}
-    - target: {fileID: 2151333391207319425, guid: 7d905f39c61a81944a727b72abe6ebbc,
-        type: 3}
-      propertyPath: CollisionModule.m_Planes.Array.data[0]
-      value: 
-      objectReference: {fileID: 1841566430}
-    - target: {fileID: 2151333391207319425, guid: 7d905f39c61a81944a727b72abe6ebbc,
-        type: 3}
-      propertyPath: CollisionModule.m_Planes.Array.data[1]
-      value: 
-      objectReference: {fileID: 226974848}
-    - target: {fileID: 2151333391207319425, guid: 7d905f39c61a81944a727b72abe6ebbc,
-        type: 3}
-      propertyPath: CollisionModule.m_Planes.Array.data[2]
-      value: 
-      objectReference: {fileID: 1437845387}
-    - target: {fileID: 2151333391207319425, guid: 7d905f39c61a81944a727b72abe6ebbc,
-        type: 3}
-      propertyPath: CollisionModule.m_Planes.Array.data[3]
-      value: 
-      objectReference: {fileID: 204349485}
-    - target: {fileID: 9003825897849947867, guid: 7d905f39c61a81944a727b72abe6ebbc,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9003825897849947867, guid: 7d905f39c61a81944a727b72abe6ebbc,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9003825897849947867, guid: 7d905f39c61a81944a727b72abe6ebbc,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9003825897849947867, guid: 7d905f39c61a81944a727b72abe6ebbc,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9003825897849947867, guid: 7d905f39c61a81944a727b72abe6ebbc,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9003825897849947867, guid: 7d905f39c61a81944a727b72abe6ebbc,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9003825897849947867, guid: 7d905f39c61a81944a727b72abe6ebbc,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9003825897849947867, guid: 7d905f39c61a81944a727b72abe6ebbc,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9003825897849947867, guid: 7d905f39c61a81944a727b72abe6ebbc,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9003825897849947867, guid: 7d905f39c61a81944a727b72abe6ebbc,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7d905f39c61a81944a727b72abe6ebbc, type: 3}
 --- !u!1 &1299795455 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6943276415157153233, guid: cc3a59c3e2d8d9847b189cfb2da80f33,
@@ -14120,12 +14020,6 @@ MeshCollider:
 --- !u!1 &1437845382 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1599826595754709761, guid: cc3a59c3e2d8d9847b189cfb2da80f33,
-    type: 3}
-  m_PrefabInstance: {fileID: 1255122958}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1437845387 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4306643203051859313, guid: cc3a59c3e2d8d9847b189cfb2da80f33,
     type: 3}
   m_PrefabInstance: {fileID: 1255122958}
   m_PrefabAsset: {fileID: 0}
@@ -16228,12 +16122,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1938681707561575672, guid: cc3a59c3e2d8d9847b189cfb2da80f33, type: 3}
---- !u!4 &1841566430 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3153678136671231308, guid: cc3a59c3e2d8d9847b189cfb2da80f33,
-    type: 3}
-  m_PrefabInstance: {fileID: 1255122958}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1845012415 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2519092360280523269, guid: cc3a59c3e2d8d9847b189cfb2da80f33,
@@ -18279,4 +18167,3 @@ SceneRoots:
   - {fileID: 595104435}
   - {fileID: 953597299}
   - {fileID: 1892695974}
-  - {fileID: 1292752673}
