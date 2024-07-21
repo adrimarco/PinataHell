@@ -50,4 +50,4 @@ MonoBehaviour:
     type: 3}
   bomb: {fileID: 0}
   enemiesBodies:
-  - {fileID: 7563054055658561737, guid: e487d858cdf00f14aa9ee28599f8f2fc, type: 3}
+  - {fileID: 5160316129263992177, guid: 5bcea52eefb72f244992f7b86b02ce65, type: 3}

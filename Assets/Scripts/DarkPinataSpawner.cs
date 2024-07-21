@@ -13,6 +13,7 @@ public class DarkPinataSpawner : MonoBehaviour
     void Start()
     {
         GetSpawnPointsFromChildren();
+        Invoke("SpawnDarkPinata", 5);
     }
 
     
@@ -20,14 +21,22 @@ public class DarkPinataSpawner : MonoBehaviour
     {
         GameObject spawnPoint = GetRandomSpawnPoint();
         GameObject darkPinata = Instantiate(darkPinataPrefab, spawnPoint.transform);
+
+        EnemyHealth pinataHealth = darkPinata.GetComponentInChildren<EnemyHealth>();
+
+        Player.Instance.darkPinataUI.SetTimer(65);
+        pinataHealth.onDead.AddListener(Player.Instance.darkPinataUI.HideTimer);
     }
 
     private void GetSpawnPointsFromChildren()
     {
+        Transform spawnsParent = transform.Find("DarkPinataSpawnPoints");
+        if (spawnsParent == null) return;
+
         spawnPoints.Clear();
-        for (short i = 0; i < transform.childCount; i++)
+        for (short i = 0; i < spawnsParent.childCount; i++)
         {
-            spawnPoints.Add(transform.GetChild(i).gameObject);
+            spawnPoints.Add(spawnsParent.GetChild(i).gameObject);
         }
     }
 

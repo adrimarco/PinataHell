@@ -55,13 +55,19 @@ public class EnemyLoot : MonoBehaviour
         Instantiate(skillsPickups[randomIndex], spawnLocation, Quaternion.identity);
     }
 
-    public void GenerateDeadEnemy(Transform enemyTransform)
+    public void GenerateDeadEnemy(Transform enemyTransform, Material mat = null)
     {
         if (enemiesBodies.Count == 0) return;
 
         int randomIndex = Random.Range(0, enemiesBodies.Count);
 
         GameObject body = Instantiate(enemiesBodies[randomIndex], enemyTransform.position, enemyTransform.rotation);
+
+        OverrideMaterial om;
+        if (mat != null && body.TryGetComponent<OverrideMaterial>(out om))
+        {
+            om.SetNewMaterial(mat);
+        }
     }
 
     public void SpawnLife(Vector3 spawnLocation)

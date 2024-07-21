@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyCollider : MonoBehaviour
 {
-    public Enemy enemy = null;
+    public EnemyHealth enemyHealth = null;
+    public MeshRenderer enemyMesh = null;
     private Rigidbody rb;
     private Animation anim;
 
@@ -16,9 +17,9 @@ public class EnemyCollider : MonoBehaviour
 
     public void Damage(float damage)
     {
-        if (enemy == null) return;
+        if (enemyHealth == null) return;
 
-        bool isDead = enemy.Damage(damage);
+        bool isDead = enemyHealth.Damage(damage);
 
         if (isDead)
         {
@@ -32,22 +33,17 @@ public class EnemyCollider : MonoBehaviour
 
     public void OnEnemyDead()
     {
-        enemy = null;
+        enemyHealth = null;
 
-        EnemyLoot.Instance.GenerateDeadEnemy(transform);
+        EnemyLoot.Instance.GenerateDeadEnemy(transform, GetEnemyMaterial());
         EnemyLoot.Instance.SpawnRandomReward(transform.position);
         Destroy(transform.parent.gameObject);
     }
 
-    private void OnCollisionStay(Collision collision)
+    private Material GetEnemyMaterial()
     {
-        if (enemy == null || enemy.IsStunned()) return;
+        if (enemyMesh == null) return null;
 
-        Player player;
-        if (collision.gameObject.TryGetComponent<Player>(out player))
-        {
-            player.Damage(enemy.attackDamage);
-            enemy.ApplyStun(1.0f);
-        }
+        return enemyMesh.material;
     }
 }

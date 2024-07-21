@@ -46,8 +46,13 @@ public class Player : MonoBehaviour
 
 
     // Components
+    [Header("UI")]
     public HUD hud = null;
     public Shop shopUI = null;
+    public DarkPinataUITimer darkPinataUI = null;
+    public PauseMenu pauseMenu = null;
+
+    [Header("Components")]
     public HitEnemies damageComp = null;
     private Rigidbody rb = null;
     private Camera cam = null;
@@ -79,18 +84,27 @@ public class Player : MonoBehaviour
         input.interactInputEvent.AddListener(Interaction);
         input.shopInputEvent.AddListener(ToggleShop);
         input.useSkillInputEvent.AddListener(UseSkill);
+        input.pauseEvent.AddListener(TogglePauseMenu);
 
 
-        // Update stats and hud
+        // Update stats
         health = maxHealth;
         movementSpeed = _movementSpeed;
         candies = 0;
+
+        // Initialize UI
         hud.UpdateHealthBar(shield, health, maxHealth);
 
         shopUI.gameObject.SetActive(false);
         shopUI.SetPlayer(this);
 
+        darkPinataUI.gameObject.SetActive(false);
+
+        pauseMenu.gameObject.SetActive(false);
+
         Enemy.onEnemyDead.AddListener(AddCandies);
+
+        EnableUIMode(false);
     }
 
     // Update is called once per frame
@@ -112,6 +126,7 @@ public class Player : MonoBehaviour
         }
 
         hud.UpdateHealthBar(shield, health, maxHealth);
+        hud.PlayDamagedAnim();
     }
 
     public void Attack()
@@ -151,20 +166,45 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void TogglePauseMenu()
+    {
+        if (pauseMenu == null) return;
+
+        bool newPauseState = !pauseMenu.gameObject.activeSelf;
+
+        pauseMenu.gameObject.SetActive(newPauseState);
+
+        if (newPauseState)
+        {
+            EnableUIMode(true);
+        }
+        else if (shopUI != null && !shopUI.gameObject.activeSelf)
+        {
+            EnableUIMode(false);
+        }
+    }
+
     public void ToggleShop()
     {
         if (shopUI == null) return;
+
+        if (pauseMenu != null && pauseMenu.gameObject.activeSelf) return;
 
         bool shopNewState = !shopUI.gameObject.activeSelf;
 
         if(shopNewState) shopUI.UpdateUI();
 
         shopUI.gameObject.SetActive(shopNewState);
-        Cursor.visible = shopNewState;
-        Cursor.lockState = shopNewState ? CursorLockMode.None : CursorLockMode.Locked;
-        Time.timeScale = shopNewState ? 0 : 1;
+        EnableUIMode(shopNewState);
+    }
 
-        controller.enabled = !shopNewState;
+    private void EnableUIMode(bool newState)
+    {
+        Cursor.visible = newState;
+        Cursor.lockState = newState ? CursorLockMode.None : CursorLockMode.Locked;
+        Time.timeScale = newState ? 0 : 1;
+
+        controller.enabled = !newState;
     }
 
     public void UpdateActiveSkill(SkillData newSkill)
@@ -263,6 +303,7 @@ public class Player : MonoBehaviour
     {
         health = Mathf.Min(health + healing, maxHealth);
         hud.UpdateHealthBar(shield, health, maxHealth);
+        hud.PlayHealAnim();
     }
 
     public void IncreaseMaxHealth(float amount)

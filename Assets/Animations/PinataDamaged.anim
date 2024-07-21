@@ -21,35 +21,35 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 1.5, y: 1.5, z: 1.5}
-        inSlope: {x: 0, y: 0, z: -0.24773069}
-        outSlope: {x: -0.2639936, y: -0.17599668, z: -0.24773069}
+        value: {x: 0.8, y: 0.8, z: 0.8}
+        inSlope: {x: -3.5153031, y: -3.4948218, z: -3.5487742}
+        outSlope: {x: -3.5153031, y: -3.4948218, z: -3.5487742}
         tangentMode: 0
-        weightedMode: 2
+        weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.50135493, y: 0.50135493, z: 0.498645}
+        outWeight: {x: 0.10392675, y: 0.11283473, z: 0.092049435}
       - serializedVersion: 3
         time: 0.16666667
-        value: {x: 0.8, y: 0.8, z: 0.8}
-        inSlope: {x: 0.06330932, y: 0.0000007250806, z: 0.010823096}
-        outSlope: {x: 0.010823096, y: 0.010788649, z: 0.010823096}
+        value: {x: 0.5, y: 0.5, z: 0.5}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
-        weightedMode: 3
-        inWeight: {x: 0.4878049, y: 0.49322498, z: 0.49322498}
-        outWeight: {x: 0.49780974, y: 0.49939921, z: 0.49780974}
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.5
-        value: {x: 1.5, y: 1.5, z: 1.5}
-        inSlope: {x: -0.049093246, y: -0.049405996, z: -0.01310723}
-        outSlope: {x: -0.049093246, y: -0.049405996, z: -0.01310723}
+        value: {x: 0.8, y: 0.8, z: 0.8}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
-        weightedMode: 1
-        inWeight: {x: 0.5021903, y: 0.49901134, z: 0.49901134}
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: EnemyMesh
+    path: Pinata
   m_FloatCurves: []
   m_PPtrCurves: []
   m_SampleRate: 60
@@ -87,36 +87,36 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1.5
-        inSlope: 0
-        outSlope: -0.2639936
-        tangentMode: 1
-        weightedMode: 2
+        value: 0.8
+        inSlope: -3.5153031
+        outSlope: -3.5153031
+        tangentMode: 0
+        weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.50135493
+        outWeight: 0.10392675
       - serializedVersion: 3
         time: 0.16666667
-        value: 0.8
-        inSlope: 0.06330932
-        outSlope: 0.010823096
-        tangentMode: 1
-        weightedMode: 3
-        inWeight: 0.4878049
-        outWeight: 0.49780974
+        value: 0.5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.5
-        value: 1.5
-        inSlope: -0.049093246
-        outSlope: -0.049093246
-        tangentMode: 0
-        weightedMode: 1
-        inWeight: 0.5021903
+        value: 0.8
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
         outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: EnemyMesh
+    path: Pinata
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -126,36 +126,36 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1.5
-        inSlope: 0
-        outSlope: -0.17599668
-        tangentMode: 1
-        weightedMode: 2
+        value: 0.8
+        inSlope: -3.4948218
+        outSlope: -3.4948218
+        tangentMode: 0
+        weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.50135493
+        outWeight: 0.11283473
       - serializedVersion: 3
         time: 0.16666667
-        value: 0.8
-        inSlope: 0.0000007250806
-        outSlope: 0.010788649
-        tangentMode: 1
-        weightedMode: 3
-        inWeight: 0.49322498
-        outWeight: 0.49939921
+        value: 0.5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.5
-        value: 1.5
-        inSlope: -0.049405996
-        outSlope: -0.049405996
-        tangentMode: 0
-        weightedMode: 1
-        inWeight: 0.49901134
+        value: 0.8
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
         outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: EnemyMesh
+    path: Pinata
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -165,36 +165,36 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1.5
-        inSlope: -0.24773069
-        outSlope: -0.24773069
+        value: 0.8
+        inSlope: -3.5487742
+        outSlope: -3.5487742
         tangentMode: 0
-        weightedMode: 2
+        weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.498645
+        outWeight: 0.092049435
       - serializedVersion: 3
         time: 0.16666667
-        value: 0.8
-        inSlope: 0.010823096
-        outSlope: 0.010823096
-        tangentMode: 0
-        weightedMode: 3
-        inWeight: 0.49322498
-        outWeight: 0.49780974
+        value: 0.5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.5
-        value: 1.5
-        inSlope: -0.01310723
-        outSlope: -0.01310723
-        tangentMode: 0
-        weightedMode: 1
-        inWeight: 0.49901134
+        value: 0.8
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
         outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: EnemyMesh
+    path: Pinata
     classID: 4
     script: {fileID: 0}
     flags: 0

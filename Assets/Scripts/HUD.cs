@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
+    const string damagedAnim = "PlayerDamagedHUD";
+    const string healAnim = "PlayerHealedHUD";
+
+
     [Header("HUD")]
     public Image healthBar;
     public Image shieldBar;
@@ -26,7 +30,8 @@ public class HUD : MonoBehaviour
     public GameObject changeSkillLayer;
     public Image newSkillIcon;
 
-    private Animation anim;
+    public Animation skillAnim;
+    public Animation effectsAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -34,8 +39,6 @@ public class HUD : MonoBehaviour
         showSkillLayer.SetActive(false);
         changeSkillLayer.SetActive(false);
         currentSkillIcon.gameObject.SetActive(false);
-
-        anim = GetComponent<Animation>();
     }
 
     public void ShowChangeSkillLayer(SkillData newSkill, SkillData currentSkill)
@@ -53,12 +56,26 @@ public class HUD : MonoBehaviour
     {
         if (skill == null) return;
 
-        if (anim.isPlaying) anim.Stop();
+        if (skillAnim.isPlaying) skillAnim.Stop();
 
         showSkillIcon.sprite = skill.icon;
         showSkillDescription.text = skill.description;
-        anim.Play();
+        skillAnim.Play();
         showSkillLayer.SetActive(true);
+    }
+
+    public void PlayDamagedAnim()
+    {
+        if (effectsAnim.isPlaying) return;
+
+        effectsAnim.Play(damagedAnim);
+    }
+
+    public void PlayHealAnim()
+    {
+        if (effectsAnim.isPlaying) effectsAnim.Stop();
+
+        effectsAnim.Play(healAnim);
     }
 
     public void HideShowSkillLayer()
