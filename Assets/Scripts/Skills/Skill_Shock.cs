@@ -31,7 +31,9 @@ public class Skill_Shock : SkillBase
             }
         }
 
-        GameObject.Instantiate(shockParticles, Player.Instance.transform.position, Quaternion.identity);
+        Vector3 particlesPosition = Player.Instance.transform.position;
+        particlesPosition.y += 0.1f;
+        GameObject.Instantiate(shockParticles, particlesPosition, shockParticles.transform.rotation);
     }
 
     public override SkillBase CopyComponent(GameObject player)

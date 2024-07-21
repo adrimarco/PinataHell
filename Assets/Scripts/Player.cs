@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
     public HitEnemies damageComp = null;
     private Rigidbody rb = null;
     private Camera cam = null;
+    private AudioSource painSound = null;
     private CapsuleCollider playerCollider = null;
     private StarterAssets.StarterAssetsInputs input = null;
     public StarterAssets.FirstPersonController controller = null;
@@ -74,6 +75,8 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         cam = GetComponentInChildren<Camera>();
+
+        painSound = GetComponent<AudioSource>();
 
         playerCollider = GetComponentInChildren<CapsuleCollider>();
 
@@ -116,6 +119,8 @@ public class Player : MonoBehaviour
 
     public void Damage(float damage)
     {
+        if (damage <= 0) return;
+
         if (shield > 0)
         {
             DamageShield(damage);
@@ -127,6 +132,8 @@ public class Player : MonoBehaviour
 
         hud.UpdateHealthBar(shield, health, maxHealth);
         hud.PlayDamagedAnim();
+
+        if (painSound != null && !painSound.isPlaying) painSound.Play();
     }
 
     public void Attack()

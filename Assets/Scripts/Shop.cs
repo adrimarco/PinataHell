@@ -12,6 +12,7 @@ public class Shop : MonoBehaviour
     const int MAX_COOLDOWN_LEVEL = 15;
 
     private Player player = null;
+    private AudioSource buySound = null;
 
     // Health
     [Header("Health")]
@@ -47,6 +48,11 @@ public class Shop : MonoBehaviour
     public TextMeshProUGUI cooldownBuyText = null;
     private int cooldownCost = COOLDOWN_INITIAL_COST;
     private int cooldownLevel = 1;
+
+    private void Start()
+    {
+        buySound = GetComponent<AudioSource>();
+    }
 
     public void SetPlayer(Player p)
     {
@@ -85,6 +91,7 @@ public class Shop : MonoBehaviour
         healthLevel += 1;
 
         UpdateUI();
+        PlayBuySound();
     }
 
     public void BuyShield()
@@ -100,6 +107,7 @@ public class Shop : MonoBehaviour
         shieldLevel += 1;
 
         UpdateUI();
+        PlayBuySound();
     }
 
     public void BuyDamage()
@@ -115,6 +123,7 @@ public class Shop : MonoBehaviour
         damageLevel += 1;
 
         UpdateUI();
+        PlayBuySound();
     }
 
     public void BuyCooldown()
@@ -135,5 +144,14 @@ public class Shop : MonoBehaviour
         else cooldownCost += COOLDOWN_INITIAL_COST;
 
         UpdateUI();
+        PlayBuySound();
+    }
+
+    private void PlayBuySound()
+    {
+        if (buySound != null)
+        {
+            buySound.Play();
+        }
     }
 }

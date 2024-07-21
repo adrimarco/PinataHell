@@ -6,6 +6,7 @@ using UnityEngine;
 public class HitEnemies : MonoBehaviour
 {
     private Animator animator;
+    private AudioSource hitSound;
     private Camera cam;
     private bool attacking = false;
     private CapsuleCollider batCollider;
@@ -20,6 +21,7 @@ public class HitEnemies : MonoBehaviour
         cam = Camera.main;
         animator = GetComponent<Animator>();
         batCollider = GetComponent<CapsuleCollider>();
+        hitSound = GetComponent<AudioSource>();
         batCollider.enabled = false;
     }
 
@@ -65,5 +67,10 @@ public class HitEnemies : MonoBehaviour
     {
         attacking = false;
         enemiesHit.Clear();
+    }
+
+    public void PlaySound()
+    {
+        if (hitSound != null) hitSound.Play();
     }
 }

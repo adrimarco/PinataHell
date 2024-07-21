@@ -8,11 +8,13 @@ public class EnemyCollider : MonoBehaviour
     public MeshRenderer enemyMesh = null;
     private Rigidbody rb;
     private Animation anim;
+    private AudioSource hitSound;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animation>();
+        hitSound = GetComponent<AudioSource>();
     }
 
     public void Damage(float damage)
@@ -28,6 +30,7 @@ public class EnemyCollider : MonoBehaviour
         else
         {
             anim.Play();
+            PlayHitSound();
         }
     }
 
@@ -45,5 +48,10 @@ public class EnemyCollider : MonoBehaviour
         if (enemyMesh == null) return null;
 
         return enemyMesh.material;
+    }
+
+    private void PlayHitSound()
+    {
+        if (hitSound != null) hitSound.Play();
     }
 }
