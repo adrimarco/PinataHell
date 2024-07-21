@@ -196,16 +196,16 @@ public class SpawnManager : MonoBehaviour
         // If all enemies are dead, start the next round in a short time
         if (enemiesCount == 0 && roundEnemiesCount >= maxRoundEnemiesCount)
         {
-            newRoundTimer = 5;
+            newRoundTimer = 2;
         }
     }
 
     private void NewRound()
     {
         round += 1;
-        roundEnemiesCount = 0;
-        maxRoundEnemiesCount += enemiesIncrementPerRound;
         enemyHealth += enemyHealthIncrementPerRound;
         enemyDamage += enemyDamageIncrementPerRound;
+        roundEnemiesCount = 0;
+        maxRoundEnemiesCount += enemiesIncrementPerRound;
     }
 }
