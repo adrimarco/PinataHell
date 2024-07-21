@@ -103,6 +103,8 @@ public class Player : MonoBehaviour
         pauseMenu.gameObject.SetActive(false);
 
         Enemy.onEnemyDead.AddListener(AddCandies);
+
+        EnableUIMode(false);
     }
 
     // Update is called once per frame
