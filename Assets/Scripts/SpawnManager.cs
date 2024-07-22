@@ -54,6 +54,7 @@ public class SpawnManager : MonoBehaviour
         maxRoundEnemiesCount = initialEnemies;
         enemyDamage = baseEnemyDamage;
         enemyHealth = baseEnemyHealth;
+        spawnTime = maxSpawnTime;
 
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         spawnPoints = new List<Transform>(GameObject.Find("SpawnPointsContainer").GetComponentsInChildren<Transform>());

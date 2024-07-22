@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
     private Camera cam = null;
     private AudioSource painSound = null;
     private CapsuleCollider playerCollider = null;
-    private StarterAssets.StarterAssetsInputs input = null;
+    public StarterAssets.StarterAssetsInputs input = null;
     public StarterAssets.FirstPersonController controller = null;
 
     // Skills

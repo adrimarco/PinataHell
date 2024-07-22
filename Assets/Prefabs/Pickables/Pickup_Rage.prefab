@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &7563101265253047325
+--- !u!1001 &657142081610817611
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -12,7 +12,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: -2574511328045384012, guid: 3585a0be259790b4590f00dbca85b946,
+      objectReference: {fileID: -3553718519405630024, guid: cc36e32e78d40834aaa90dcfe5e766e4,
         type: 3}
     - target: {fileID: 269739808022428472, guid: afdc9e4334ee95641931c22dbc3d207b,
         type: 3}
@@ -113,25 +113,48 @@ PrefabInstance:
         type: 3}
       propertyPath: icon
       value: 
-      objectReference: {fileID: 21300000, guid: 6d2aabbb745433847981e30f68912c17,
+      objectReference: {fileID: 21300000, guid: db486e8c8b1858046bc373bbcb348bcb,
         type: 3}
     - target: {fileID: 3959723230151338945, guid: afdc9e4334ee95641931c22dbc3d207b,
         type: 3}
       propertyPath: cooldown
-      value: 40
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 3959723230151338945, guid: afdc9e4334ee95641931c22dbc3d207b,
         type: 3}
       propertyPath: description
-      value: Stun nearby pinatas.
+      value: Increase attack and movement speed shortly.
       objectReference: {fileID: 0}
     - target: {fileID: 8986041445268934984, guid: afdc9e4334ee95641931c22dbc3d207b,
         type: 3}
       propertyPath: m_Name
-      value: Pickup_ShockSkill
+      value: Pickup_Rage
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6971289525349981851, guid: afdc9e4334ee95641931c22dbc3d207b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8986041445268934984, guid: afdc9e4334ee95641931c22dbc3d207b,
+        type: 3}
+      insertIndex: 7
+      addedObject: {fileID: 4862381136874755341}
   m_SourcePrefab: {fileID: 100100000, guid: afdc9e4334ee95641931c22dbc3d207b, type: 3}
+--- !u!1 &8478719163981820163 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8986041445268934984, guid: afdc9e4334ee95641931c22dbc3d207b,
+    type: 3}
+  m_PrefabInstance: {fileID: 657142081610817611}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4862381136874755341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8478719163981820163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85709793792e93e4bafcdae55bfd944c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

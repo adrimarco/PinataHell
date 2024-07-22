@@ -67,10 +67,17 @@ public class HitEnemies : MonoBehaviour
     {
         attacking = false;
         enemiesHit.Clear();
+
+        if (Player.Instance.input.attack) Attack();
     }
 
     public void PlaySound()
     {
         if (hitSound != null) hitSound.Play();
+    }
+
+    public void SetAttackSpeedMultiplier(float speed = 1f)
+    {
+        animator.speed = speed;
     }
 }

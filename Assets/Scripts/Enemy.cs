@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
         healthComp = GetComponent<EnemyHealth>();
         healthComp.onDamaged.AddListener(OnDamaged);
         healthComp.onDead.AddListener(OnDead);
+        stunTime = 1f;
     }
 
     // Update is called once per frame

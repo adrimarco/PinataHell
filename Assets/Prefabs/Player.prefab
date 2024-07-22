@@ -316,12 +316,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  _movementSpeed: 5
+  _movementSpeed: 4
   hud: {fileID: 2688253151830761261}
   shopUI: {fileID: 5563851803502602726}
   darkPinataUI: {fileID: 3916543429985364136}
   pauseMenu: {fileID: 2641013592533227355}
+  gameOverPrefab: {fileID: 3110488954629721545, guid: 1ded76f7331c4614f8dd792cdd1b5f2a,
+    type: 3}
   damageComp: {fileID: 1863567822285294970}
+  input: {fileID: 0}
   controller: {fileID: 0}
 --- !u!114 &8863872638043914575
 MonoBehaviour:
@@ -452,7 +455,7 @@ PrefabInstance:
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 1.9999999
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81,
         type: 3}
@@ -854,17 +857,17 @@ PrefabInstance:
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.87
+      value: 1.9999999
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}
