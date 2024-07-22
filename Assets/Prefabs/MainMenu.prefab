@@ -1695,7 +1695,45 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Creditos
+  m_text: '
+
+    Developed by
+
+    Adrian Marco           Angel Robles
+
+
+    From
+    ambientCg.com, licensed under CC0 1.0
+
+    Chipboard 004    Tiles 043    wood
+    048   Rope 001   Concrete 031
+
+    Net 004 A       Carpet 012     wallpaper 001
+    A          Fabric 048
+
+
+    From sketchfab, licensed under CC4.0
+
+    "Forklift
+    with Rig" by Daniel orozco
+
+    "fluorescent lamp" by valentin321
+
+    "Trampoline"
+    by 1-3D.com
+
+    "Chairs" by Elbolillo
+
+    "Cardboard-box" by Daniyal Malik
+
+    "Simple
+    C4- Bomb" by Blender3D
+
+
+    Realistic Smoke VFX Free Pack by govfx from itch.io
+
+    Mail
+    Ray Stuff by Typodermic Fonts from dafont.com'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ecf994872b7be84428e8507e892a21b7, type: 2}
   m_sharedMaterial: {fileID: -6546579630683492993, guid: ecf994872b7be84428e8507e892a21b7,
