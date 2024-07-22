@@ -14,7 +14,7 @@ public class JumpPad : MonoBehaviour
         Player player = Player.Instance;
 
         float verticalVelocity = player.controller.GetVerticalVelocity();
-        if (verticalVelocity < -5f)
+        if (verticalVelocity < -4f)
         {
             player.controller.SetVerticalVelocity(verticalVelocity * -0.5f);
             return;
