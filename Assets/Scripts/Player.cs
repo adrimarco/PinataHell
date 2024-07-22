@@ -396,4 +396,9 @@ public class Player : MonoBehaviour
     {
         cooldownMultiplier += 0.2f;
     }
+
+    public void PlaySound(AudioClip sound)
+    {
+        painSound.PlayOneShot(sound);
+    }
 }

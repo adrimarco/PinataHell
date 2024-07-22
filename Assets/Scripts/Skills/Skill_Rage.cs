@@ -7,6 +7,12 @@ using UnityEngine.UIElements;
 public class Skill_Rage : SkillBase
 {
     bool playerOnRage = false;
+    AudioClip sound = null;
+
+    public override void OnActivate()
+    {
+        sound = Resources.Load<AudioClip>("Rage");
+    }
 
     public override void OnUse() 
     {
@@ -16,6 +22,7 @@ public class Skill_Rage : SkillBase
 
         p.movementSpeed += 2;
         p.damageComp.SetAttackSpeedMultiplier(1.8f);
+        p.PlaySound(sound);
 
         Invoke("FinishEffect", 8);
     }
