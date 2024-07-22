@@ -17,4 +17,14 @@ public class EnemyAttack : MonoBehaviour
             enemy.ApplyStun(1.0f);
         }
     }
+
+    private void FixedUpdate()
+    {
+        if (enemy != null && Vector3.Distance(enemy.transform.position, transform.position) > 5)
+        {
+            Rigidbody rb = GetComponent<Rigidbody>();
+            rb.position = enemy.transform.position;
+            rb.velocity = Vector3.zero;
+        }
+    }
 }
