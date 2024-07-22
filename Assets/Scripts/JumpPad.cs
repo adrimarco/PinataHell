@@ -13,15 +13,15 @@ public class JumpPad : MonoBehaviour
 
         Player player = Player.Instance;
 
+        // Save player jump height if it is not modified
+        if (player.controller.JumpHeight < jumpPadHeight) playerJumpHeight = player.controller.JumpHeight;
+        
         float verticalVelocity = player.controller.GetVerticalVelocity();
         if (verticalVelocity < -4f)
         {
             player.controller.SetVerticalVelocity(verticalVelocity * -0.5f);
             return;
         }
-
-        // Save player jump height if it is not modified
-        if (player.controller.JumpHeight < jumpPadHeight) playerJumpHeight = player.controller.JumpHeight;
 
         // Update jump height
         player.controller.JumpHeight = jumpPadHeight;
