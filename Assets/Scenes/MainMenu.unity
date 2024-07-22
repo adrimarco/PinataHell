@@ -339,6 +339,48 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 45717015636246141, guid: 1c77df825ec7c3049889cb2f0051b371,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 403811158291910618, guid: 1c77df825ec7c3049889cb2f0051b371,
+        type: 3}
+      propertyPath: m_text
+      value: 'Credits
+
+        From ambientCg.com, licensed under CC0 1.0
+
+        Chipboard
+        004    Tiles 043    wood 048   Rope 001   Concrete 031
+
+        Net 004 A      
+        Carpet 012     wallpaper 001 A          Fabric 048
+
+
+        From sketchfab,
+        licensed under CC4.0
+
+        "Forklift with Rig" by Daniel orozco
+
+        "fluorescent
+        lamp" by valentin321
+
+        "Trampoline" by 1-3D.com
+
+        "Chairs"
+        by Elbolillo
+
+        "Cardboard-box" by Daniyal Malik
+
+
+        Realistic
+        Smoke VFX Free Pack by Govfx from itch.io
+
+
+        Mail Ray Stuff by Typodermic
+        Fonts from dafont.com'
+      objectReference: {fileID: 0}
     - target: {fileID: 508260067383223790, guid: 1c77df825ec7c3049889cb2f0051b371,
         type: 3}
       propertyPath: m_Pivot.x
@@ -443,6 +485,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911197970705332056, guid: 1c77df825ec7c3049889cb2f0051b371,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6693185646467578120, guid: 1c77df825ec7c3049889cb2f0051b371,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
