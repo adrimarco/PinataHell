@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject creditsObject = null;
+    public GameObject tutorialObject = null;
 
     private void Start()
     {
-        if (creditsObject != null) SetCreditsVisibility(false);
+        SetCreditsVisibility(false);
+        SetTutorialVisibility(false);
     }
 
     public void StartGame()
@@ -25,5 +27,10 @@ public class MainMenu : MonoBehaviour
     public void SetCreditsVisibility(bool newVisibility)
     {
         if (creditsObject != null) creditsObject.SetActive(newVisibility);
+    }
+
+    public void SetTutorialVisibility(bool newVisibility)
+    {
+        if (tutorialObject != null) tutorialObject.SetActive(newVisibility);
     }
 }
