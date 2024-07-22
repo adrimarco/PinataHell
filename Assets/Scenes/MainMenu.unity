@@ -373,13 +373,15 @@ PrefabInstance:
 
         "Cardboard-box" by Daniyal Malik
 
+        "Simple C4-
+        Bomb" by Blender3D
 
-        Realistic
-        Smoke VFX Free Pack by Govfx from itch.io
+
+        Realistic Smoke VFX Free Pack by Govfx from
+        itch.io
 
 
-        Mail Ray Stuff by Typodermic
-        Fonts from dafont.com'
+        Mail Ray Stuff by Typodermic Fonts from dafont.com'
       objectReference: {fileID: 0}
     - target: {fileID: 508260067383223790, guid: 1c77df825ec7c3049889cb2f0051b371,
         type: 3}
