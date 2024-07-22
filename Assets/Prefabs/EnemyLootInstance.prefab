@@ -47,6 +47,7 @@ MonoBehaviour:
   skillsPickups:
   - {fileID: 1459550635916938581, guid: b1bbbc07ec9c55340b9352d34438adf0, type: 3}
   - {fileID: 8478719163981820163, guid: bc0c1ff8fafc67f469d3951e7073aa6c, type: 3}
+  - {fileID: 2995232194244437505, guid: 0276803c9d6483e42a616ef817800207, type: 3}
   lifePickup: {fileID: 8986041445268934984, guid: 26d687cc3d551f94ba5cd6256057a774,
     type: 3}
   bomb: {fileID: 0}
