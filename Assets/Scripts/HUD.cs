@@ -39,8 +39,7 @@ public class HUD : MonoBehaviour
     public Animation effectsAnim;
     public Animation eventAnim;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         showSkillLayer.SetActive(false);
         changeSkillLayer.SetActive(false);

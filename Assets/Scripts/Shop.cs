@@ -49,7 +49,7 @@ public class Shop : MonoBehaviour
     private int cooldownCost = COOLDOWN_INITIAL_COST;
     private int cooldownLevel = 1;
 
-    private void Start()
+    private void Awake()
     {
         buySound = GetComponent<AudioSource>();
     }

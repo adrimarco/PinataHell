@@ -6852,6 +6852,12 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8591781642456343790, guid: 7583dbc7999336f46bbb32bee6c375a3,
+        type: 3}
+      propertyPath: gameOverPrefab
+      value: 
+      objectReference: {fileID: 3110488954629721545, guid: 1ded76f7331c4614f8dd792cdd1b5f2a,
+        type: 3}
     - target: {fileID: 8670503392770971480, guid: 7583dbc7999336f46bbb32bee6c375a3,
         type: 3}
       propertyPath: m_Name

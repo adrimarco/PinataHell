@@ -9,6 +9,9 @@ public class Player : MonoBehaviour
     const float COOLDOWN_LIMIT = 10f;
 
     public static Player Instance = null;
+    public static int pinatasBroken = 0;
+    public static int minutesSurvived = 0;
+    public static float secondsSurivived = 0;
 
     // Player stats
     [Header("Player stats")]
@@ -51,6 +54,7 @@ public class Player : MonoBehaviour
     public Shop shopUI = null;
     public DarkPinataUITimer darkPinataUI = null;
     public PauseMenu pauseMenu = null;
+    public GameObject gameOverPrefab = null;
 
     [Header("Components")]
     public HitEnemies damageComp = null;
@@ -70,6 +74,9 @@ public class Player : MonoBehaviour
     void Start()
     {
         Instance = this;
+        pinatasBroken = 0;
+        minutesSurvived = 0;
+        secondsSurivived = 0;
 
         // Get references to necessary components
         rb = GetComponent<Rigidbody>();
@@ -115,6 +122,13 @@ public class Player : MonoBehaviour
     {
         RecoverShield();
         SkillOnCooldown();
+
+        secondsSurivived += Time.deltaTime;
+        if (secondsSurivived >= 60)
+        {
+            minutesSurvived += 1;
+            secondsSurivived -= 60;
+        }
     }
 
     public void Damage(float damage)
@@ -128,12 +142,20 @@ public class Player : MonoBehaviour
         else
         {
             health -= damage;
+
+            if (health <= 0) PlayerDead();
         }
 
         hud.UpdateHealthBar(shield, health, maxHealth);
         hud.PlayDamagedAnim();
 
         if (painSound != null && !painSound.isPlaying) painSound.Play();
+    }
+
+    private void PlayerDead()
+    {
+        EnableUIMode(true);
+        Instantiate(gameOverPrefab, transform);
     }
 
     public void Attack()
@@ -175,7 +197,7 @@ public class Player : MonoBehaviour
 
     public void TogglePauseMenu()
     {
-        if (pauseMenu == null) return;
+        if (pauseMenu == null || health <= 0) return;
 
         bool newPauseState = !pauseMenu.gameObject.activeSelf;
 

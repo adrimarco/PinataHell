@@ -37,6 +37,7 @@ public class EnemyCollider : MonoBehaviour
     public void OnEnemyDead()
     {
         enemyHealth = null;
+        Player.pinatasBroken += 1;
 
         EnemyLoot.Instance.GenerateDeadEnemy(transform, GetEnemyMaterial());
         EnemyLoot.Instance.SpawnRandomReward(transform.position);

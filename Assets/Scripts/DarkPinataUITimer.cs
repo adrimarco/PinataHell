@@ -20,7 +20,7 @@ public class DarkPinataUITimer : MonoBehaviour
 
     private Animation anim;
 
-    private void Start()
+    private void Awake()
     {
         anim = GetComponent<Animation>();
     }
@@ -44,7 +44,10 @@ public class DarkPinataUITimer : MonoBehaviour
         }
 
         gameObject.SetActive(true);
-        if (anim != null) anim.Play(warningAnim);
+        if (anim != null)
+        {
+            anim.Play(warningAnim);
+        }
     }
 
     public void SetRemainingSeconds(int seconds)
