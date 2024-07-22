@@ -27,6 +27,7 @@ public class EnemyLoot : MonoBehaviour
     public void SpawnRandomReward(Vector3 spawnLocation)
     {
         int randomNumber = Random.Range(0, 1000);
+        randomNumber = 530;
 
         if (randomNumber < 500) 
         {
@@ -34,7 +35,7 @@ public class EnemyLoot : MonoBehaviour
         }
         else if (randomNumber < 550)
         {
-            //SpawnBomb();
+            SpawnBomb(spawnLocation);
         }
         else if (randomNumber < 750)
         {
@@ -53,6 +54,13 @@ public class EnemyLoot : MonoBehaviour
         int randomIndex = Random.Range(0, skillsPickups.Count);
         
         Instantiate(skillsPickups[randomIndex], spawnLocation, Quaternion.identity);
+    }
+
+    public void SpawnBomb(Vector3 spawnLocation)
+    {
+        if (bomb == null) return;
+
+        Instantiate(bomb, spawnLocation, Quaternion.identity);
     }
 
     public void GenerateDeadEnemy(Transform enemyTransform, Material mat = null)

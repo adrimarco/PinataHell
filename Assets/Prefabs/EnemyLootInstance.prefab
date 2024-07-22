@@ -50,6 +50,6 @@ MonoBehaviour:
   - {fileID: 2995232194244437505, guid: 0276803c9d6483e42a616ef817800207, type: 3}
   lifePickup: {fileID: 8986041445268934984, guid: 26d687cc3d551f94ba5cd6256057a774,
     type: 3}
-  bomb: {fileID: 0}
+  bomb: {fileID: 8986041445268934984, guid: 982f19f25ce084a4c90f485bd0803837, type: 3}
   enemiesBodies:
   - {fileID: 5160316129263992177, guid: 5bcea52eefb72f244992f7b86b02ce65, type: 3}
