@@ -8,6 +8,8 @@ public class ToxicGasChild : MonoBehaviour
 
     public static UnityEvent<GameObject, bool> onPlayerEnterTrigger = new UnityEvent<GameObject, bool>();
     public bool doDamage = false;
+    public bool playerInside = true;
+
     public void OnTriggerEnter(Collider other)
     {
         if(!doDamage)
@@ -23,10 +25,11 @@ public class ToxicGasChild : MonoBehaviour
             Player player;
             if (other.gameObject.TryGetComponent<Player>(out player))
             {
+                playerInside = true;
                 int damage = (int)((2 / player.maxHealth) * 100);
                 player.Damage(damage);
-                player.transform.gameObject.GetComponent<DamageOverTime>().ResetTimer();
-                player.transform.gameObject.GetComponent<DamageOverTime>().DamageTime(damage);
+                player.GetComponent<DamageOverTime>().ResetTimer();
+                player.GetComponent<DamageOverTime>().DamageTime(damage);
             }
         }
     }
@@ -47,7 +50,8 @@ public class ToxicGasChild : MonoBehaviour
             Player player;
             if (other.gameObject.TryGetComponent<Player>(out player))
             {
-                player.transform.gameObject.GetComponent<DamageOverTime>().DamageTime(0);
+                playerInside = false;
+                player.GetComponent<DamageOverTime>().DamageTime(0);
             }
         }
     }

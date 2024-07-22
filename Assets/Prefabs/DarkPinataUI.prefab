@@ -134,6 +134,7 @@ Animation:
   - {fileID: 7400000, guid: 195acba5bc05ef2418699b0f3826ef35, type: 2}
   - {fileID: 7400000, guid: 6eabd210c97894b4c85fda916d15a7c3, type: 2}
   - {fileID: 7400000, guid: de7b115fabd6b5749b1d695b907c162a, type: 2}
+  - {fileID: 7400000, guid: cca9c83b0e66c1546baaa02f0b43c558, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -305,11 +306,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 909072422781910750}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.3}
-  m_AnchorMax: {x: 1, y: 0.3}
-  m_AnchoredPosition: {x: -1680, y: 576.234}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 240, y: -154.76599}
   m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!222 &8546961693643600863
 CanvasRenderer:
   m_ObjectHideFlags: 0

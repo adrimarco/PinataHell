@@ -29,7 +29,13 @@ public class ToxicGas : MapEvents
         {
             onMapEventState.Invoke(false);
             active = false;
-            activeArea.GetComponent<ToxicGasChild>().doDamage = false;
+            ToxicGasChild activeChild = activeArea.GetComponent<ToxicGasChild>();
+            activeChild.doDamage = false;
+            if (activeChild.playerInside)
+            {
+                Player.Instance.GetComponent<DamageOverTime>().DamageTime(0);
+                activeChild.playerInside = false;
+            }
             Destroy(transform.gameObject);
         } 
     }
@@ -72,11 +78,12 @@ public class ToxicGas : MapEvents
 
     IEnumerator ActivateToxicGas(int i)
     {
+        Player.Instance.hud.PlayGasWarning();
         particleSystems[i].gameObject.SetActive(true);
         // Reactivate object to start making damage to the player
         yield return new WaitForSeconds(4);
-        activeArea.GetComponent<BoxCollider>().gameObject.SetActive(false);
-        activeArea.GetComponent<BoxCollider>().gameObject.SetActive(true);
+        activeArea.GetComponent<BoxCollider>().enabled = false;
+        activeArea.GetComponent<BoxCollider>().enabled = true;
     }
 }
 

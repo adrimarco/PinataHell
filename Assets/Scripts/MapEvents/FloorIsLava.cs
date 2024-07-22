@@ -8,6 +8,7 @@ public class FloorIsLava : MapEvents
     Vector3 finalPosition = new Vector3(0, -0.6f, 0);
     float movementSpeed = 20f;
     GameObject lavaObject;
+    bool playerInside = false;
     
 
     // Start is called before the first frame update
@@ -26,6 +27,11 @@ public class FloorIsLava : MapEvents
         {
             onMapEventState.Invoke(false);
             active = false;
+            if (playerInside)
+            {
+                Player.Instance.transform.gameObject.GetComponent<DamageOverTime>().DamageTime(0);
+                playerInside = false;
+            }
             StartCoroutine(MoveLava(finalPosition, initPosition, true));
         } 
     }
@@ -34,9 +40,11 @@ public class FloorIsLava : MapEvents
     {
         onMapEventState.Invoke(true);
         active = true;
+        playerInside = false;
 
         transform.position = initPosition;
         StartCoroutine(MoveLava(initPosition, finalPosition, false));
+        Player.Instance.hud.PlayLavaWarning();
     }
 
 
@@ -48,9 +56,10 @@ public class FloorIsLava : MapEvents
         Player player;
         if (other.gameObject.TryGetComponent<Player>(out player))
         {
+            playerInside = true;
             player.Damage((int)((5 / player.maxHealth) * 100));
-            player.transform.gameObject.GetComponent<DamageOverTime>().ResetTimer();
-            player.transform.gameObject.GetComponent<DamageOverTime>().DamageTime((int)((5/player.maxHealth)*100));
+            player.GetComponent<DamageOverTime>().ResetTimer();
+            player.GetComponent<DamageOverTime>().DamageTime((int)((5/player.maxHealth)*100));
         }
     }
 
@@ -62,7 +71,8 @@ public class FloorIsLava : MapEvents
         Player player;
         if (other.gameObject.TryGetComponent<Player>(out player))
         {
-            player.transform.gameObject.GetComponent<DamageOverTime>().DamageTime(0);
+            playerInside = false;
+            player.GetComponent<DamageOverTime>().DamageTime(0);
         }
     }
 

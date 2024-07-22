@@ -30,8 +30,14 @@ public class HUD : MonoBehaviour
     public GameObject changeSkillLayer;
     public Image newSkillIcon;
 
+    [Space(10)]
+    [Header("Events")]
+    public TextMeshProUGUI eventsText;
+
+    [Space(10)]
     public Animation skillAnim;
     public Animation effectsAnim;
+    public Animation eventAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +45,7 @@ public class HUD : MonoBehaviour
         showSkillLayer.SetActive(false);
         changeSkillLayer.SetActive(false);
         currentSkillIcon.gameObject.SetActive(false);
+        eventsText.text = string.Empty;
     }
 
     public void ShowChangeSkillLayer(SkillData newSkill, SkillData currentSkill)
@@ -109,5 +116,17 @@ public class HUD : MonoBehaviour
         skillCooldownBar.fillAmount = cooldownPercentage;
 
         currentSkillIcon.color = cooldownPercentage >= 1 ? Color.white : new Color(0.5f, 0.5f, 0.5f, 0.5f);
+    }
+
+    public void PlayLavaWarning()
+    {
+        eventsText.text = "Warning\nThe floor is lava";
+        eventAnim.Play();
+    }
+
+    public void PlayGasWarning()
+    {
+        eventsText.text = "Warning\nYou are in a gas chamber";
+        eventAnim.Play();
     }
 }

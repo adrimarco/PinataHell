@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d032c665f44de4f927e691eb26afb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEventDuration: 20
+  maxEventDuration: 60
   eventDuration: 0
 --- !u!1 &5782387151632414480
 GameObject:
@@ -171,8 +171,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 59.46208, y: 1, z: 44.98682}
-  m_Center: {x: -23.620474, y: 0, z: 19.524763}
+  m_Size: {x: 59.46208, y: 20, z: 44.98682}
+  m_Center: {x: -23.620474, y: 9.5, z: 19.524763}
 --- !u!114 &4375924085510211609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,8 +239,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 66.41821, y: 1, z: 59.300285}
-  m_Center: {x: 39.305008, y: 0, z: -32.548042}
+  m_Size: {x: 66.41821, y: 20, z: 59.300285}
+  m_Center: {x: 39.305008, y: 9.5, z: -32.548042}
 --- !u!114 &5474885186085296985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,8 +307,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 66.2259, y: 1, z: 51.33044}
-  m_Center: {x: 39.088253, y: 0, z: 22.718721}
+  m_Size: {x: 66.2259, y: 20, z: 51.33044}
+  m_Center: {x: 39.088253, y: 9.5, z: 22.718721}
 --- !u!114 &2066601131665511301
 MonoBehaviour:
   m_ObjectHideFlags: 0
