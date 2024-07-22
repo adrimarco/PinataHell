@@ -25,7 +25,6 @@ public class Fireball : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name);
         EnemyCollider enemy;
         if (other.TryGetComponent<EnemyCollider>(out enemy))
         {

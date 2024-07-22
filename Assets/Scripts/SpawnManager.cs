@@ -18,7 +18,7 @@ public class SpawnManager : MonoBehaviour
     int maxEnemiesCount = 20;
     // Enemies that appear at each round counter
     int roundEnemiesCount = 0;
-    int maxRoundEnemiesCount = 20;
+    int maxRoundEnemiesCount = 30;
 
     Transform playerTransform;
     List<Transform> spawnPoints;

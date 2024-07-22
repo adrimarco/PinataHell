@@ -13,7 +13,7 @@ public class DarkPinataSpawner : MonoBehaviour
     void Start()
     {
         GetSpawnPointsFromChildren();
-        Invoke("SpawnDarkPinata", 5);
+        PrepareToSpawn();
     }
 
     
@@ -26,6 +26,7 @@ public class DarkPinataSpawner : MonoBehaviour
 
         Player.Instance.darkPinataUI.SetTimer(65);
         pinataHealth.onDead.AddListener(Player.Instance.darkPinataUI.HideTimer);
+        pinataHealth.onDead.AddListener(PrepareToSpawn);
     }
 
     private void GetSpawnPointsFromChildren()
@@ -57,5 +58,10 @@ public class DarkPinataSpawner : MonoBehaviour
         lastSpawnPoint = randomSpawnPoint;
 
         return randomSpawnPoint;
+    }
+
+    private void PrepareToSpawn()
+    {
+        Invoke("SpawnDarkPinata", 60);
     }
 }

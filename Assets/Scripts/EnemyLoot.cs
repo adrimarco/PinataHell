@@ -27,7 +27,6 @@ public class EnemyLoot : MonoBehaviour
     public void SpawnRandomReward(Vector3 spawnLocation)
     {
         int randomNumber = Random.Range(0, 1000);
-        randomNumber = 530;
 
         if (randomNumber < 500) 
         {
