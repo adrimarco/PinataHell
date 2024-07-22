@@ -11,7 +11,7 @@ public class GameOver : MonoBehaviour
 
     void Start()
     {
-        brokenPinatasText.text = "Broken pinatas: " + Player.pinatasBroken.ToString();
+        brokenPinatasText.text = "Smashed pinatas: " + Player.pinatasBroken.ToString();
         timeSurvivedText.text = "Survived time: " + Player.minutesSurvived.ToString() + ":" + Mathf.FloorToInt(Player.secondsSurivived).ToString();
     }
 

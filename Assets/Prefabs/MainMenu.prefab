@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7864776158182490872
 RectTransform:
   m_ObjectHideFlags: 0
@@ -712,23 +712,25 @@ MonoBehaviour:
 
     WASD - Move
 
+    Space - Jump
+
     Mouse - Look
 
 
-    Left Click - Attack
+    Left
+    Click - Attack
 
-    Right
-    Click - Use power
+    Right Click - Use power
 
 
     E - Pick up power
 
 
-    TAB - Open/Close Shop
+    TAB
+    - Open/Close Shop
 
 
-    ESC
-    - Pause'
+    ESC - Pause'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ecf994872b7be84428e8507e892a21b7, type: 2}
   m_sharedMaterial: {fileID: -6546579630683492993, guid: ecf994872b7be84428e8507e892a21b7,
@@ -2015,7 +2017,7 @@ MonoBehaviour:
   m_text: 'Goal: Survive as long as possible
 
 
-    Break pinatas using your bat to
+    Smash pinatas using your bat to
     collect candies. Spend candies on upgrades in the shop. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ecf994872b7be84428e8507e892a21b7, type: 2}
