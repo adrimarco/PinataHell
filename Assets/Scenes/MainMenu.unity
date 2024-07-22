@@ -342,24 +342,30 @@ PrefabInstance:
     - target: {fileID: 45717015636246141, guid: 1c77df825ec7c3049889cb2f0051b371,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 403811158291910618, guid: 1c77df825ec7c3049889cb2f0051b371,
         type: 3}
       propertyPath: m_text
-      value: 'Credits
+      value: '
 
-        From ambientCg.com, licensed under CC0 1.0
+        Developed by
 
-        Chipboard
-        004    Tiles 043    wood 048   Rope 001   Concrete 031
-
-        Net 004 A      
-        Carpet 012     wallpaper 001 A          Fabric 048
+        Adrian Marco           Angel Robles
 
 
-        From sketchfab,
-        licensed under CC4.0
+        From
+        ambientCg.com, licensed under CC0 1.0
+
+        Chipboard 004    Tiles 043   
+        wood 048   Rope 001   Concrete 031
+
+        Net 004 A       Carpet 012    
+        wallpaper 001 A          Fabric 048
+
+
+        From sketchfab, licensed under
+        CC4.0
 
         "Forklift with Rig" by Daniel orozco
 
@@ -377,9 +383,8 @@ PrefabInstance:
         Bomb" by Blender3D
 
 
-        Realistic Smoke VFX Free Pack by Govfx from
+        Realistic Smoke VFX Free Pack by govfx from
         itch.io
-
 
         Mail Ray Stuff by Typodermic Fonts from dafont.com'
       objectReference: {fileID: 0}
@@ -491,7 +496,7 @@ PrefabInstance:
     - target: {fileID: 1911197970705332056, guid: 1c77df825ec7c3049889cb2f0051b371,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6693185646467578120, guid: 1c77df825ec7c3049889cb2f0051b371,
         type: 3}
